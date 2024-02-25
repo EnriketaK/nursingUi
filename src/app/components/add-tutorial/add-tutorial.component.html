@@ -1,0 +1,98 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="q1">Living alone</label>
+        <input
+          type="checkbox"
+          class="form-control"
+          id="livAloneCbNo"
+          [(ngModel)]="formUi.livAloneCbNo"
+          name="No"
+        /> No
+        <input
+          type="checkbox"
+          class="form-control"
+          id="livAloneCbYes"
+          [(ngModel)]="formUi.livAloneCbYes"
+          name="Yes"
+        /> Yes
+        <input
+          type="checkbox"
+          class="form-control"
+          id="livAloneLift"
+          [(ngModel)]="formUi.livAloneLift"
+          name="Lift"
+        /> Lift/Elevator
+        <br> Floor <input
+          class="form-control"
+          id="livAloneFloor"
+          required
+          [(ngModel)]="formUi.livAloneFloor"
+          name="floor"
+        />
+      </div>
+      <div class="form-group">
+        <label for="q2">Unregulated obligations/dependencies resulting from your personal environment</label>
+        <input
+          type="checkbox"
+          class="form-control"
+          id="obligNo"
+          [(ngModel)]="formUi.obligNo"
+          name="No"
+        /> No
+        <input
+          type="checkbox"
+          class="form-control"
+          id="obligYes"
+          [(ngModel)]="formUi.obligYes"
+          name="Yes"
+        /> Yes
+      </div>
+
+      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Tutorial was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="tutorial.title"
+            name="title"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="tutorial.description"
+            name="description"
+          />
+        </div>
+  
+        <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Tutorial was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">Add</button>
+      </div>
+    </div>
+  </div> -->
