@@ -1,1 +1,216 @@
-<p>tutorial-details works!</p>
+<div *ngIf="viewMode; else editable">
+    <!-- <div *ngIf="currentForm.obliationsYes"> -->
+      <div>
+            <!-- change ^ -->
+      <h4>Form</h4>
+      <!-- <div>
+        <label><strong>Title:</strong></label> {{ currentForm.hospAbroadPlace }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentForm.hospAbroadPlace }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentForm.obliationsYes ? "Published" : "Pending" }}
+      </div> -->
+
+
+      <div class="subsection_container-header form-group">
+        <h5>Living situation</h5>
+      </div>
+      <div class="question_container form-group">
+        <p class="question-parag">Living alone</p>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="liveAloneNo" [(ngModel)]="currentForm.liveAloneNo">
+            <label class="form-check-label" for="liveAloneNo">No</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="liveAloneYes" [(ngModel)]="currentForm.liveAloneYes">
+            <label class="form-check-label" for="liveAloneYes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="liveAloneLift" [(ngModel)]="currentForm.liveAloneLift">
+            <label class="form-check-label" for="liveAloneLift">Lift/Elevator</label>
+          </div>
+        </div>
+        <div class="form-group col-md-9">
+          <input type="text" class="form-control" id="liveAloneFloor" placeholder="Floor level" [(ngModel)]="currentForm.liveAloneFloor">
+        </div>
+      </div>
+      
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/nursing/{{ currentForm.id }}"
+      >
+      <!-- change ^ -->
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentForm">
+      <br />
+      <p>Please click on a form...</p>
+    </div>
+  </div>
+
+
+  <ng-template #editable>
+    <div class="edit-form">
+      
+        <div class="subsection_container-header form-group">
+          <h5>Living situation</h5>
+        </div>
+        <div class="question_container form-group">
+          <p class="question-parag">Living alone</p>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="liveAloneNo" [(ngModel)]="currentForm.liveAloneNo" name="liveAloneNo">
+              <label class="form-check-label" for="liveAloneNo">No</label>
+            </div>
+            <!-- <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="liveAloneYes" [(ngModel)]="currentForm.liveAloneYes">
+              <label class="form-check-label" for="liveAloneYes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="liveAloneLift" [(ngModel)]="currentForm.liveAloneLift">
+              <label class="form-check-label" for="liveAloneLift">Lift/Elevator</label>
+            </div> -->
+          </div>
+          <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="liveAloneFloor" placeholder="Floor level" [(ngModel)]="currentForm.liveAloneFloor"  name="liveAloneFloor">
+          </div>
+        </div>
+  
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateTutorial()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentForm.id">
+            <!-- change ^ -->
+      <br />
+      <p>Cannot access this Tutorial...</p>
+    </div>
+  </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <ng-template #editable>
+    <div class="edit-form">
+    <!-- <div *ngIf="currentForm.obliationsYes" class="edit-form"> -->
+            <!-- change ^ -->
+      <h4>Tutorial</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentForm.hospAbroadPlace"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentForm.hospAbroadPlace"
+            name="description"
+          />
+        </div>
+
+
+        <div class="subsection_container-header form-group">
+          <h5>Living situation</h5>
+        </div>
+        <div class="question_container form-group">
+          <p class="question-parag">Living alone</p>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="liveAloneNo" [(ngModel)]="currentForm.liveAloneNo" name="liveAloneNo">
+              <label class="form-check-label" for="liveAloneNo">No</label>
+            </div>
+            <!-- <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="liveAloneYes" [(ngModel)]="currentForm.liveAloneYes">
+              <label class="form-check-label" for="liveAloneYes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="liveAloneLift" [(ngModel)]="currentForm.liveAloneLift">
+              <label class="form-check-label" for="liveAloneLift">Lift/Elevator</label>
+            </div> -->
+          </div>
+          <div class="form-group col-md-9">
+            <input type="text" class="form-control" id="liveAloneFloor" placeholder="Floor level" [(ngModel)]="currentForm.liveAloneFloor"  name="liveAloneFloor">
+          </div>
+        </div>
+  
+        
+
+
+      </form>
+  
+      <!-- <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentForm.id"
+        (click)="updatePublished(false)"
+      >
+        UnPublish
+      </button>
+      <button
+        *ngIf="!currentForm.obliationsYes"
+        class="badge badge-primary mr-2"
+        (click)="updatePublished(true)"
+      >
+        Publish
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+        Delete
+      </button> -->
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateTutorial()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentForm.id">
+            <!-- change ^ -->
+      <br />
+      <p>Cannot access this Tutorial...</p>
+    </div>
+  </ng-template>

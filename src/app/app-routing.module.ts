@@ -5,9 +5,9 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
-  { path: 'tutorials', component: TutorialsListComponent },
-  { path: 'tutorials/:id', component: TutorialDetailsComponent },
+  { path: '', redirectTo: 'nursing', pathMatch: 'full' },
+  { path: 'nursing', component: TutorialsListComponent },
+  { path: 'nursing/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent }
 ];
 

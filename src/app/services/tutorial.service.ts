@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tutorial } from '../models/tutorial.model';
+import { FormUi, Tutorial } from '../models/tutorial.model';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = 'http://localhost:8080/api/nursing';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +12,24 @@ export class TutorialService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Tutorial[]> {
-    return this.http.get<Tutorial[]>(baseUrl);
+  get_suggestion(data: any): Observable<any> {
+    return this.http.post(`${baseUrl}/suggestion`, data);
   }
 
-  get(id: any): Observable<Tutorial> {
-    return this.http.get<Tutorial>(`${baseUrl}/${id}`);
+  save_admission_form(data: any): Observable<any> {
+    return this.http.post(`${baseUrl}/save-admission`, data);
+  }
+  
+  save_summary(data: any): Observable<any> {
+    return this.http.post(`${baseUrl}/save-summary`, data);
   }
 
-  create(data: any): Observable<any> {
-    // console.log("data")
-    // console.log(data)
-    return this.http.post(baseUrl, data);
+  getAll(): Observable<FormUi[]> {
+    return this.http.get<FormUi[]>(baseUrl);
+  }
+
+  get(id: any): Observable<FormUi> {
+    return this.http.get<FormUi>(`${baseUrl}/${id}`);
   }
 
   update(id: any, data: any): Observable<any> {
@@ -38,7 +44,7 @@ export class TutorialService {
     return this.http.delete(baseUrl);
   }
 
-  findByTitle(title: any): Observable<Tutorial[]> {
-    return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
+  findByTitle(title: any): Observable<FormUi[]> {
+    return this.http.get<FormUi[]>(`${baseUrl}?title=${title}`);
   }
 }

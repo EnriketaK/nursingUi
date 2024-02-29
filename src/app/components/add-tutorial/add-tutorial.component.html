@@ -1,56 +1,390 @@
 <div>
-  <div class="submit-form">
-    <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="q1">Living alone</label>
-        <input
-          type="checkbox"
-          class="form-control"
-          id="livAloneCbNo"
-          [(ngModel)]="formUi.livAloneCbNo"
-          name="No"
-        /> No
-        <input
-          type="checkbox"
-          class="form-control"
-          id="livAloneCbYes"
-          [(ngModel)]="formUi.livAloneCbYes"
-          name="Yes"
-        /> Yes
-        <input
-          type="checkbox"
-          class="form-control"
-          id="livAloneLift"
-          [(ngModel)]="formUi.livAloneLift"
-          name="Lift"
-        /> Lift/Elevator
-        <br> Floor <input
-          class="form-control"
-          id="livAloneFloor"
-          required
-          [(ngModel)]="formUi.livAloneFloor"
-          name="floor"
-        />
+  <div>
+    <div *ngIf="!submitted">      
+
+      <div class="section_container-header form-group">
+        <h3>1. Care situation</h3>
       </div>
-      <div class="form-group">
-        <label for="q2">Unregulated obligations/dependencies resulting from your personal environment</label>
-        <input
-          type="checkbox"
-          class="form-control"
-          id="obligNo"
-          [(ngModel)]="formUi.obligNo"
-          name="No"
-        /> No
-        <input
-          type="checkbox"
-          class="form-control"
-          id="obligYes"
-          [(ngModel)]="formUi.obligYes"
-          name="Yes"
-        /> Yes
+      
+      <div class="subsection_container-header form-group">
+        <h5>Living situation</h5>
+      </div>
+      <div class="question_container form-group">
+        <p class="question-parag">Living alone</p>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="liveAloneNo" [(ngModel)]="formUi.liveAloneNo">
+            <label class="form-check-label" for="liveAloneNo">No</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="liveAloneYes" [(ngModel)]="formUi.liveAloneYes">
+            <label class="form-check-label" for="liveAloneYes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="liveAloneLift" [(ngModel)]="formUi.liveAloneLift">
+            <label class="form-check-label" for="liveAloneLift">Lift/Elevator</label>
+          </div>
+        </div>
+        <div class="form-group col-md-9">
+          <input type="text" class="form-control" id="liveAloneFloor" placeholder="Floor level" [(ngModel)]="formUi.liveAloneFloor">
+        </div>
+      </div>
+      
+      <div class="question_container form-group">
+        <p class="question-parag">Unregulated obligations/dependencies resulting from your personal environment</p>
+      </div>
+      <div class="form-row">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="obliationsNo" [(ngModel)]="formUi.obliationsNo">
+          <label class="form-check-label" for="obliationsNo">No</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="obliationsYes" [(ngModel)]="formUi.obliationsYes">
+          <label class="form-check-label" for="obliationsYes">Yes</label>
+        </div>
+      </div>
+      
+      
+      <div class="subsection_container-header form-group">
+        <h5>Relatives/Emergency contacts</h5>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <input type="email" class="form-control" id="relativeSurname1" placeholder="Surname" [(ngModel)]="formUi.relativeSurname1">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativeFname1" placeholder="First Name" [(ngModel)]="formUi.relativeFname1">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativePhone1" placeholder="Phone" [(ngModel)]="formUi.relativePhone1">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativeRel1" placeholder="Relationship" [(ngModel)]="formUi.relativeRel1">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <input type="email" class="form-control" id="relativeSurname2" placeholder="Surname">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativeFname2" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativePhone2" placeholder="Phone">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativeRel2" placeholder="Relationship">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <input type="email" class="form-control" id="relativeSurname3" placeholder="Surname">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativeFname3" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativePhone3" placeholder="Phone">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" id="relativeRel3" placeholder="Relationship">
+        </div>
+      </div>
+      
+      <div class="subsection_container form-group">
+        <h5>Degree of care</h5>
+      </div>
+      <div class="form-row">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="careNo" [(ngModel)]="formUi.careNo">
+          <label class="form-check-label" for="careNo">No</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="careYes" [(ngModel)]="formUi.careYes">
+          <label class="form-check-label" for="careYes">Yes = degree of care</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="careDegree1" [(ngModel)]="formUi.careDegree1">
+          <label class="form-check-label" for="careDegree1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="careDegree2" [(ngModel)]="formUi.careDegree2">
+          <label class="form-check-label" for="careDegree2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="careDegree3" [(ngModel)]="formUi.careDegree3">
+          <label class="form-check-label" for="careDegree3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="careDegree4" [(ngModel)]="formUi.careDegree4">
+          <label class="form-check-label" for="careDegree4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="careDegree5" [(ngModel)]="formUi.careDegree5">
+          <label class="form-check-label" for="careDegree5">5</label>
+        </div>
+      </div>
+      
+      <div class="question_container form-group">
+        <p class="question-parag">Have you been hospitalized for more than 3 days in the past 12 months</p>
+      </div>
+      <div class="form-row">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="hospitalizedNo" [(ngModel)]="formUi.hospitalizedNo">
+          <label class="form-check-label" for="hospitalizedNo">No</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="hospitalizedYes" [(ngModel)]="formUi.hospitalizedYes">
+          <label class="form-check-label" for="hospitalizedYes">Yes</label>
+        </div>
+      </div>
+      
+      <div class="subsection_container-header form-group">
+        <h5>Hospitalization abroad</h5>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="email" class="form-control" id="hospAbroadPlace" placeholder="Place" [(ngModel)]="formUi.hospAbroadPlace">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="hospAbroadTime" placeholder="Time" [(ngModel)]="formUi.hospAbroadTime">
+        </div>
+      </div>
+      
+      <div class="section_container-header form-group">
+        <h3>2. Current medical state</h3>
+      </div>
+      
+      <div class="subsection_container-header form-group">
+        <h5>Communication</h5>
+      </div>
+      <div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="commNoImpairment" [(ngModel)]="formUi.commNoImpairment">
+          <label class="form-check-label" for="commNoImpairment">no impairment</label>
+        </div>
+        <div class="form-row">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="commForeignLang" [(ngModel)]="formUi.commForeignLang">
+            <label class="form-check-label" for="commForeignLang">measures for communication in a foreign language</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="commForeignLangYes" [(ngModel)]="formUi.commForeignLangYes">
+            <label class="form-check-label" for="commForeignLangYes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="commForeignLangNo" [(ngModel)]="formUi.commForeignLangNo">
+            <label class="form-check-label" for="commForeignLangNo">No</label>
+          </div>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="commSignLang"  [(ngModel)]="formUi.commSignLang">
+          <label class="form-check-label" for="commSignLang">sign Language</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="commDisorder" [(ngModel)]="formUi.commDisorder">
+          <label class="form-check-label" for="commDisorder">speech disorder</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="commTrach" [(ngModel)]="formUi.commTrach">
+          <label class="form-check-label" for="commTrach">tracheostoma</label>
+        </div>
+      </div>
+      
+      <div class="subsection_container-header form-group">
+        <h5>Vision</h5>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <p class="question-parag">visual impairment</p>
+        </div>
+        <div class="form-group col-md-8">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="visionLeft"  [(ngModel)]="formUi.visionLeft">
+            <label class="form-check-label" for="visionLeft">left eye</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="visionRight" [(ngModel)]="formUi.visionRight">
+            <label class="form-check-label" for="visionRight">right eye</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <p class="question-parag">blindness</p>
+        </div>
+        <div class="form-group col-md-8">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="blindnessLeft"  [(ngModel)]="formUi.blindnessLeft">
+            <label class="form-check-label" for="blindnessLeft">left eye</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="blindnessRight"  [(ngModel)]="formUi.blindnessRight">
+            <label class="form-check-label" for="blindnessRight">right eye</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <p class="question-parag">visual aids in place?</p>
+        </div>
+        <div class="form-group col-md-8">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="visualAidLeft"  [(ngModel)]="formUi.visualAidLeft">
+            <label class="form-check-label" for="visualAidLeft">left eye</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="visualAidRight"  [(ngModel)]="formUi.visualAidRight">
+            <label class="form-check-label" for="visualAidRight">right eye</label>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="subsection_container-header form-group">
+        <h5>Hearing</h5>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="hearingNoImp" [(ngModel)]="formUi.hearingNoImp">
+        <label class="form-check-label" for="hearingNoImp">no impairment</label>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <p class="question-parag">hearing aid</p>
+        </div>
+        <div class="form-group col-md-8">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="hearingAidRight" [(ngModel)]="formUi.hearingAidRight">
+            <label class="form-check-label" for="hearingAidRight">right ear</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="hearingAidLeft" [(ngModel)]="formUi.hearingAidLeft">
+            <label class="form-check-label" for="hearingAidLeft">left ear</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <p class="question-parag">hard of hearing</p>
+        </div>
+        <div class="form-group col-md-8">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="hearingHardRight"  [(ngModel)]="formUi.hearingHardRight">
+            <label class="form-check-label" for="hearingHardRight">right ear</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="hearingHardLeft" [(ngModel)]="formUi.hearingHardLeft">
+            <label class="form-check-label" for="hearingHardLeft">left ear</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <p class="question-parag">deafness</p>
+        </div>
+        <div class="form-group col-md-8">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="deafnessRight" [(ngModel)]="formUi.deafnessRight">
+            <label class="form-check-label" for="deafnessRight">right ear</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="deafnessLeft" [(ngModel)]="formUi.deafnessLeft">
+            <label class="form-check-label" for="deafnessLeft">left ear</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="subsection_container-header form-group">
+        <h5>Disorientation</h5>
+      </div>
+      <div class="form-check form-group">
+        <input class="form-check-input" type="checkbox" id="disorNoImp" [(ngModel)]="formUi.disorNoImp">
+        <label class="form-check-label" for="disorNoImp">no impairment</label>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <p class="question-parag">disorientation of</p>
+        </div>
+        <div class="form-group col-md-8">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="disorTime" [(ngModel)]="formUi.disorTime">
+            <label class="form-check-label" for="disorTime">time </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="disorPlace" [(ngModel)]="formUi.disorPlace">
+            <label class="form-check-label" for="disorPlace">place </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="disorPerson" [(ngModel)]="formUi.disorPerson">
+            <label class="form-check-label" for="disorPerson">person </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="subsection_container-header form-group">
+        <h5>Understanding (thinking)</h5>
+      </div>
+      <div>
+        <div class="form-check form-group">
+          <input class="form-check-input" type="checkbox" id="understNoImp" [(ngModel)]="formUi.understNoImp">
+          <label class="form-check-label" for="understNoImp">no impairment</label>
+        </div>
+        <div class="form-row form-group">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="understConfusion" [(ngModel)]="formUi.understConfusion">
+            <label class="form-check-label" for="understConfusion">confusion</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="understNerv" [(ngModel)]="formUi.understNerv">
+            <label class="form-check-label" for="understNerv">nervousness / restlessness</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="understAltered" [(ngModel)]="formUi.understAltered">
+            <label class="form-check-label" for="understAltered">altered consciousness</label>
+          </div>
+        </div>
       </div>
 
-      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+      <div class="subsection_container-header form-row">
+        <div class="form-group col-md-2">
+          <h5>Summary</h5>
+        </div>
+        <div class="form-group col-md-2">
+          <button (click)="getSuggestions()" type="button" class="btn btn-secondary">Suggest</button>
+        </div>
+        <div class="form-group col-md-8">
+          <button (click)="clearSuggestions()" type="button" class="btn btn-secondary">Done</button>
+        </div>
+      </div>
+
+      <div id="summary_suggestions_container" [style.display]="isDisplayed ? 'block' : 'none'">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="flexCheckDefault" id="first_suggestion">
+          <label class="form-check-label" for="first_suggestion" [innerHTML]="first_suggestion">
+            Summary 1
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="flexCheckDefault" id="second_suggestion">
+          <label class="form-check-label" for="second_suggestion" [innerHTML]="second_suggestion">
+            Summary 2
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="flexCheckDefault" id="third_suggestion">
+          <label class="form-check-label" for="third_suggestion" [innerHTML]="third_suggestion">
+            Summary 3
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <textarea class="form-control" id="summary_text" rows="5"></textarea>
+      </div>
+
+      <button (click)="saveForm()" class="btn btn-success">Submit</button>
     </div>
 
     <div *ngIf="submitted">
