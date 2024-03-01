@@ -1,6 +1,30 @@
 <div>
   <div>
-    <div *ngIf="!submitted">      
+    <div *ngIf="!submitted">     
+      <div class="section_container-header form-group">
+        <h2>Nursing admission sheet</h2>
+      </div> 
+
+      <div class="subsection_container-header form-group">
+        <h5>Patient label</h5>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="patientLname" placeholder="First Name" [(ngModel)]="formUi.patientLname">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="patientFname" placeholder="Surname" [(ngModel)]="formUi.patientFname">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="weight" placeholder="Weight" [(ngModel)]="formUi.weight">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="height" placeholder="Height" [(ngModel)]="formUi.height">
+        </div>
+      </div>
 
       <div class="section_container-header form-group">
         <h3>1. Care situation</h3>
@@ -52,7 +76,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-3">
-          <input type="email" class="form-control" id="relativeSurname1" placeholder="Surname" [(ngModel)]="formUi.relativeSurname1">
+          <input type="text" class="form-control" id="relativeSurname1" placeholder="Surname" [(ngModel)]="formUi.relativeSurname1">
         </div>
         <div class="form-group col-md-3">
           <input type="text" class="form-control" id="relativeFname1" placeholder="First Name" [(ngModel)]="formUi.relativeFname1">
@@ -66,32 +90,33 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-3">
-          <input type="email" class="form-control" id="relativeSurname2" placeholder="Surname">
+          <input type="text" class="form-control" id="relativeSurname2" placeholder="Surname"  [(ngModel)]="formUi.relativeSurname2" name="relativeSurname2">
         </div>
         <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeFname2" placeholder="First Name">
+          <input type="text" class="form-control" id="relativeFname2" placeholder="First Name" [(ngModel)]="formUi.relativeFname2" name="relativeFname2">
         </div>
         <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativePhone2" placeholder="Phone">
+          <input type="text" class="form-control" id="relativePhone2" placeholder="Phone" [(ngModel)]="formUi.relativePhone2" name="relativePhone2">
         </div>
         <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeRel2" placeholder="Relationship">
+          <input type="text" class="form-control" id="relativeRel2" placeholder="Relationship" [(ngModel)]="formUi.relativeRel2" name="relativeRel2">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-3">
-          <input type="email" class="form-control" id="relativeSurname3" placeholder="Surname">
+          <input type="text" class="form-control" id="relativeSurname3" placeholder="Surname"  [(ngModel)]="formUi.relativeSurname3" name="relativeSurname3">
         </div>
         <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeFname3" placeholder="First Name">
+          <input type="text" class="form-control" id="relativeFname3" placeholder="First Name"  [(ngModel)]="formUi.relativeFname3" name="relativeFname3">
         </div>
         <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativePhone3" placeholder="Phone">
+          <input type="text" class="form-control" id="relativePhone3" placeholder="Phone" [(ngModel)]="formUi.relativePhone3" name="relativePhone3">
         </div>
         <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeRel3" placeholder="Relationship">
+          <input type="text" class="form-control" id="relativeRel3" placeholder="Relationship"   [(ngModel)]="formUi.relativeSurname3"name="relativeSurname3">
         </div>
       </div>
+      
       
       <div class="subsection_container form-group">
         <h5>Degree of care</h5>
@@ -146,7 +171,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="email" class="form-control" id="hospAbroadPlace" placeholder="Place" [(ngModel)]="formUi.hospAbroadPlace">
+          <input type="text" class="form-control" id="hospAbroadPlace" placeholder="Place" [(ngModel)]="formUi.hospAbroadPlace">
         </div>
         <div class="form-group col-md-6">
           <input type="text" class="form-control" id="hospAbroadTime" placeholder="Time" [(ngModel)]="formUi.hospAbroadTime">
@@ -388,45 +413,8 @@
     </div>
 
     <div *ngIf="submitted">
-      <h4>Tutorial was submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+      <h4>Form was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newForm()">Add</button>
     </div>
   </div>
 </div>
-
-
-<!-- <div>
-    <div class="submit-form">
-      <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="title">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            required
-            [(ngModel)]="tutorial.title"
-            name="title"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="description">Description</label>
-          <input
-            class="form-control"
-            id="description"
-            required
-            [(ngModel)]="tutorial.description"
-            name="description"
-          />
-        </div>
-  
-        <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
-      </div>
-  
-      <div *ngIf="submitted">
-        <h4>Tutorial was submitted successfully!</h4>
-        <button class="btn btn-success" (click)="newTutorial()">Add</button>
-      </div>
-    </div>
-  </div> -->

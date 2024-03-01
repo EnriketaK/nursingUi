@@ -1,13 +1,9 @@
-export class Tutorial {
-    id?: any;
-    title?: string;
-    description?: string;
-    published?: boolean;
-  }
-
-
-  export class FormUi {
+export class FormUi {
     id?: number;
+    patientFname?: string;
+    patientLname?: string;
+    weight?: string;
+    height?: string;
     liveAloneNo?: boolean;
     liveAloneYes?: boolean;
     liveAloneLift?: boolean;
@@ -71,4 +67,16 @@ export class Tutorial {
     id?: any;
     content?: string;
     admissionFormFk?: number;
+  }
+
+  export class FormSummary {
+    id?: any;
+    content?: string;
+    admissionFormFk?: FormUi;
+  }
+
+  export interface SuggestionType {
+    summary1: string;
+    summary2: string;
+    summary3: string;
   }

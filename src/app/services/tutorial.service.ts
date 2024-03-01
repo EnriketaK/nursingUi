@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FormUi, Tutorial } from '../models/tutorial.model';
+import { FormSummaryDto, FormUi, FormSummary } from '../models/tutorial.model';
 
 const baseUrl = 'http://localhost:8080/api/nursing';
 
@@ -28,11 +28,15 @@ export class TutorialService {
     return this.http.get<FormUi[]>(baseUrl);
   }
 
-  get(id: any): Observable<FormUi> {
+  getForm(id: any): Observable<FormUi> {
     return this.http.get<FormUi>(`${baseUrl}/${id}`);
   }
 
-  update(id: any, data: any): Observable<any> {
+  getSummaries(id: any): Observable<FormSummary[]> {
+    return this.http.get<FormSummary[]>(`${baseUrl}/summaries/formId/${id}`);
+  }
+
+  updateForm(id: any, data: any): Observable<any> {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 

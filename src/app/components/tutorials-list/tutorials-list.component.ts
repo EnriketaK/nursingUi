@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormUi, Tutorial } from 'src/app/models/tutorial.model';
+import { FormUi } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
@@ -56,15 +56,6 @@ export class TutorialsListComponent implements OnInit {
   searchTitle(): void {
     this.currentForm = {};
     this.currentIndex = -1;
-
-    // this.tutorialService.findByTitle(this.title)
-    //   .subscribe({
-    //     next: (data) => {
-    //       this.tutorials = data;
-    //       console.log(data);
-    //     },
-    //     error: (e) => console.error(e)
-    //   });
   }
 
 }

@@ -1,16 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormSummaryDto, FormUi, Tutorial } from 'src/app/models/tutorial.model';
+import { FormSummaryDto, FormUi, SuggestionType } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
-
-interface SuggestionType {
-  summary1: string;
-  summary2: string;
-  summary3: string;
-}
-
-// function isSuggestionType(o: any): o is SuggestionType {
-//   return "summary1" in o && "summary2" && "summary3" in o
-// }
 
 @Component({
   selector: 'app-add-tutorial',
@@ -25,14 +15,12 @@ export class AddTutorialComponent implements OnInit {
   public isDisplayed = false;
   public suggestionRes!: SuggestionType;
 
-  tutorial: Tutorial = {
-    title: '',
-    description: '',
-    published: false
-  };
-
   formUi: FormUi = {
     id: 0,
+    patientFname: '',
+    patientLname: '',
+    weight: '',
+    height: '',
     liveAloneNo: false,
     liveAloneYes: false,
     liveAloneLift: false,
@@ -100,6 +88,10 @@ export class AddTutorialComponent implements OnInit {
 
   getSuggestions(): void {
     const data = {
+      patientFname: this.formUi.patientFname,
+      patientLname: this.formUi.patientLname,
+      weight: this.formUi.weight,
+      height: this.formUi.height,
       liveAloneNo: this.formUi.liveAloneNo,
       liveAloneYes: this.formUi.liveAloneYes,
       liveAloneLift: this.formUi.liveAloneLift,
@@ -206,6 +198,10 @@ export class AddTutorialComponent implements OnInit {
 
   saveForm(): void {
     const data = {
+      patientFname: this.formUi.patientFname,
+      patientLname: this.formUi.patientLname,
+      weight: this.formUi.weight,
+      height: this.formUi.height,
       liveAloneNo: this.formUi.liveAloneNo,
       liveAloneYes: this.formUi.liveAloneYes,
       liveAloneLift: this.formUi.liveAloneLift,
@@ -280,10 +276,9 @@ export class AddTutorialComponent implements OnInit {
   }
 
   saveSummary(formId: number): void {
-    //pass admission form id
-    //migrate
     var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
-    var summaryObj: FormSummaryDto = new FormSummaryDto();
+    if (summaryText.value && summaryText.value.length > 0) {
+      var summaryObj: FormSummaryDto = new FormSummaryDto();
     summaryObj.content = summaryText.value;
     summaryObj.admissionFormFk = formId;
     console.log(" summaryText.value ");
@@ -299,14 +294,76 @@ export class AddTutorialComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+    } else {
+      this.submitted = true;
+    }
   }
 
-  newTutorial(): void {
+  newForm(): void {
     this.submitted = false;
-    this.tutorial = {
-      title: '',
-      description: '',
-      published: false
+    this.formUi = {
+      id: 0,
+      patientFname: '',
+      patientLname: '',
+      weight: '',
+      height: '',
+      liveAloneNo: false,
+      liveAloneYes: false,
+      liveAloneLift: false,
+      liveAloneFloor: '',
+      obliationsNo: false,
+      obliationsYes: false,
+      relativeSurname1: '',
+      relativeFname1: '',
+      relativePhone1: '',
+      relativeRel1: '',
+      relativeSurname2: '',
+      relativeFname2: '',
+      relativePhone2: '',
+      relativeRel2: '',
+      relativeSurname3: '',
+      relativeFname3: '',
+      relativePhone3: '',
+      relativeRel3: '',
+      careNo: false,
+      careYes: false,
+      careDegree1: false,
+      careDegree2: false,
+      careDegree3: false,
+      careDegree4: false,
+      careDegree5: false,
+      hospitalizedNo: false,
+      hospitalizedYes: false,
+      hospAbroadPlace: '',
+      hospAbroadTime: '',
+      commNoImpairment: false,
+      commForeignLang: false,
+      commForeignLangYes: false,
+      commForeignLangNo: false,
+      commSignLang: false,
+      commDisorder: false,
+      commTrach: false,
+      visionLeft: false,
+      visionRight: false,
+      blindnessLeft: false,
+      blindnessRight: false,
+      visualAidLeft: false,
+      visualAidRight: false,
+      hearingNoImp: false,
+      hearingAidRight: false,
+      hearingAidLeft: false,
+      hearingHardRight: false,
+      hearingHardLeft: false,
+      deafnessRight: false,
+      deafnessLeft: false,
+      disorNoImp: false,
+      disorTime: false,
+      disorPlace: false,
+      disorPerson: false,
+      understNoImp: false,
+      understConfusion: false,
+      understNerv: false,
+      understAltered: false,
     };
   }
 
