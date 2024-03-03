@@ -239,7 +239,6 @@ export class AddTutorialComponent implements OnInit {
 
   getSuggestions(): void {
     const data = this.getFormData();
-    
     console.log("data")
     console.log(data)
 
@@ -271,15 +270,27 @@ export class AddTutorialComponent implements OnInit {
     var thirdSuggestionEl = <HTMLInputElement> document.getElementById("third_suggestion");
     var isThirdSuggChecked = thirdSuggestionEl.checked;
 
-    var allSummary = '';
-    allSummary = isFirstSuggChecked ? this.suggestionRes.summary1 : '';
+    var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
+    var allSummary = summaryText.innerHTML;
+    console.log("allSummary")
+    console.log(allSummary)
+    console.log(firstSuggestionEl.checked)
+    console.log(secondSuggestionEl.checked)
+    console.log(thirdSuggestionEl.checked)
+
+    allSummary = isFirstSuggChecked ? allSummary += this.suggestionRes.summary1 : allSummary;
     allSummary = isSecSuggChecked ? allSummary += this.suggestionRes.summary2 : allSummary;
     allSummary = isThirdSuggChecked ? allSummary += this.suggestionRes.summary3 : allSummary;
     firstSuggestionEl.checked = false;
     secondSuggestionEl.checked = false;
     thirdSuggestionEl.checked = false;
 
-    var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
+    console.log("allSummary")
+    console.log(allSummary)
+    console.log(firstSuggestionEl.checked)
+    console.log(secondSuggestionEl.checked)
+    console.log(thirdSuggestionEl.checked)
+
     summaryText.textContent = allSummary;
 
     this.isDisplayed = false;
@@ -625,6 +636,8 @@ export class AddTutorialComponent implements OnInit {
       understConfusion: this.formUi.understConfusion,
       understNerv: this.formUi.understNerv,
       understAltered: this.formUi.understAltered,    
+      disabilityNo: this.formUi.disabilityNo,  
+      disabilityYes: this.formUi.disabilityNo,  
       disabilityHemiYes: this.formUi.disabilityHemiYes,  
       disabilityHemi: this.formUi.disabilityHemi,
       disabilityAmputYes: this.formUi.disabilityAmputYes,
@@ -716,6 +729,7 @@ export class AddTutorialComponent implements OnInit {
       objCompress: this.formUi.objCompress,
       objDevice: this.formUi.objDevice,
       objOrtho: this.formUi.objOrtho,
+      objPros: this.formUi.objPros,
       objOthers: this.formUi.objOthers,
       skinIntact: this.formUi.skinIntact,
       skinNotInt: this.formUi.skinNotInt,
