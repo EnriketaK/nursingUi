@@ -230,7 +230,8 @@ export class TutorialDetailsComponent implements OnInit {
   public first_suggestion = '';
   public second_suggestion = '';
   public third_suggestion = '';
-  public isDisplayed = false;
+  public areSuggestionsAvailable = false;
+  public isSuggesting = false;
   public suggestionRes!: SuggestionType;
 
   message = '';
@@ -292,6 +293,61 @@ export class TutorialDetailsComponent implements OnInit {
   }
 
 
+  getSuggestions(): void {
+    const data = this.getFormData();
+    console.log("data")
+    console.log(data)
+    if (this.isSuggesting) {
+      return;
+    }
+
+    this.isSuggesting = true;
+    this.tutorialService.get_suggestion(data)
+      .subscribe({
+        next: (res: any) => {
+          console.log("res");
+          console.log(res);
+          this.suggestionRes = JSON.parse(res);
+          console.log(this.suggestionRes?.summary1);
+          console.log(this.suggestionRes?.summary2);
+          console.log(this.suggestionRes?.summary3);
+
+          this.areSuggestionsAvailable = true;
+          this.isSuggesting = false;
+          this.first_suggestion = this.suggestionRes.summary1;
+          this.second_suggestion = this.suggestionRes.summary2;
+          this.third_suggestion = this.suggestionRes.summary3;
+        },
+        error: (e) => {
+          console.error(e);
+          this.isSuggesting = false;
+        }
+      });
+  }
+
+  clearSuggestions(): void {
+    var firstSuggestionEl = <HTMLInputElement> document.getElementById("first_suggestion");
+    var isFirstSuggChecked = firstSuggestionEl.checked;
+    var secondSuggestionEl = <HTMLInputElement> document.getElementById("second_suggestion");
+    var isSecSuggChecked = secondSuggestionEl.checked;
+    var thirdSuggestionEl = <HTMLInputElement> document.getElementById("third_suggestion");
+    var isThirdSuggChecked = thirdSuggestionEl.checked;
+
+    var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
+    var allSummary = summaryText.innerHTML;
+
+    allSummary = isFirstSuggChecked ? allSummary += this.suggestionRes.summary1 : allSummary;
+    allSummary = isSecSuggChecked ? allSummary += this.suggestionRes.summary2 : allSummary;
+    allSummary = isThirdSuggChecked ? allSummary += this.suggestionRes.summary3 : allSummary;
+    firstSuggestionEl.checked = false;
+    secondSuggestionEl.checked = false;
+    thirdSuggestionEl.checked = false;
+
+    summaryText.textContent = allSummary;
+
+    this.areSuggestionsAvailable = false;
+  }
+
   updateForm(): void {
     this.tutorialService.updateForm(this.formUi.id, this.formUi)
       .subscribe({
@@ -304,38 +360,84 @@ export class TutorialDetailsComponent implements OnInit {
   }
 
   saveSummary(formId: number): void {
-    this.message = '';
     var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
     if (summaryText.value && summaryText.value.length > 0) {
       var summaryObj: FormSummaryDto = new FormSummaryDto();
-      summaryObj.content = summaryText.value;
-      summaryObj.admissionFormFk = formId;
-      console.log(" summaryText.value ");
-      console.log( summaryText.value);
-  
-      
-      this.tutorialService.save_summary(summaryObj)
-        .subscribe({
-          next: (res) => {
-            console.log("res");
-            console.log(res);
-            var newSummary: FormSummary = new FormSummary();
-            newSummary.content = summaryObj.content;
-            this.summaries?.push(newSummary);
+    summaryObj.content = summaryText.value;
+    summaryObj.admissionFormFk = formId;
+    console.log(" summaryText.value ");
+    console.log( summaryText.value);
 
-            summaryText.value = '';
-            this.message = res.message ? res.message : 'This form was updated successfully!';
-          },
-          error: (e) => console.error(e)
-        });
+    
+    this.tutorialService.save_summary(summaryObj)
+      .subscribe({
+        next: (res) => {
+          console.log("res");
+          console.log(res);
+          var newSummary: FormSummary = new FormSummary();
+          newSummary.content = summaryObj.content;
+          this.summaries?.push(newSummary);
+          summaryText.value = '';
+          
+          this.showToast();
+        },
+        error: (e) => console.error(e)
+      });
     } else {
-      this.message ='This form was updated successfully!';
+      this.showToast();
     }
   }
 
+  showToast() {
+    const toastElement = document.querySelector('.toast');
+    if (toastElement) {
+      (toastElement as HTMLElement).classList.add('show');
+    }
+    this.afterSubitting();
+  }
 
-  getSuggestions(): void {
-    const data = {
+  afterSubitting() {
+    setTimeout(() => {
+      const toastElement = document.querySelector('.toast');
+      if (toastElement) {
+        (toastElement as HTMLElement).classList.remove('show');
+      }
+    }, 3000);
+  }
+
+
+  // saveSummary(formId: number): void {
+  //   this.message = '';
+  //   var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
+  //   if (summaryText.value && summaryText.value.length > 0) {
+  //     var summaryObj: FormSummaryDto = new FormSummaryDto();
+  //     summaryObj.content = summaryText.value;
+  //     summaryObj.admissionFormFk = formId;
+  //     console.log(" summaryText.value ");
+  //     console.log( summaryText.value);
+  
+      
+  //     this.tutorialService.save_summary(summaryObj)
+  //       .subscribe({
+  //         next: (res) => {
+  //           console.log("res");
+  //           console.log(res);
+  //           var newSummary: FormSummary = new FormSummary();
+  //           newSummary.content = summaryObj.content;
+  //           this.summaries?.push(newSummary);
+
+  //           summaryText.value = '';
+  //           this.message = res.message ? res.message : 'This form was updated successfully!';
+  //         },
+  //         error: (e) => console.error(e)
+  //       });
+  //   } else {
+  //     this.message ='This form was updated successfully!';
+  //   }
+  // }
+
+  private getFormData() {
+    return {
       patientFname: this.formUi.patientFname,
       patientLname: this.formUi.patientLname,
       weight: this.formUi.weight,
@@ -415,6 +517,8 @@ export class TutorialDetailsComponent implements OnInit {
       understConfusion: this.formUi.understConfusion,
       understNerv: this.formUi.understNerv,
       understAltered: this.formUi.understAltered,    
+      disabilityNo: this.formUi.disabilityNo,  
+      disabilityYes: this.formUi.disabilityNo,  
       disabilityHemiYes: this.formUi.disabilityHemiYes,  
       disabilityHemi: this.formUi.disabilityHemi,
       disabilityAmputYes: this.formUi.disabilityAmputYes,
@@ -506,6 +610,7 @@ export class TutorialDetailsComponent implements OnInit {
       objCompress: this.formUi.objCompress,
       objDevice: this.formUi.objDevice,
       objOrtho: this.formUi.objOrtho,
+      objPros: this.formUi.objPros,
       objOthers: this.formUi.objOthers,
       skinIntact: this.formUi.skinIntact,
       skinNotInt: this.formUi.skinNotInt,
@@ -545,50 +650,6 @@ export class TutorialDetailsComponent implements OnInit {
       informYes: this.formUi.informYes,
       informNo: this.formUi.informNo,
     };
-    
-    console.log("data")
-    console.log(data)
-
-    this.tutorialService.get_suggestion(data)
-      .subscribe({
-        next: (res: any) => {
-          console.log("res");
-          console.log(res);
-          this.suggestionRes = JSON.parse(res);
-          console.log(this.suggestionRes?.summary1);
-          console.log(this.suggestionRes?.summary2);
-          console.log(this.suggestionRes?.summary3);
-
-          this.isDisplayed = true;
-          this.first_suggestion = this.suggestionRes.summary1;
-          this.second_suggestion = this.suggestionRes.summary2;
-          this.third_suggestion = this.suggestionRes.summary3;
-        },
-        error: (e) => console.error(e)
-      });
-  }
-
-
-  clearSuggestions(): void {
-    var firstSuggestionEl = <HTMLInputElement> document.getElementById("first_suggestion");
-    var isFirstSuggChecked = firstSuggestionEl.checked;
-    var secondSuggestionEl = <HTMLInputElement> document.getElementById("second_suggestion");
-    var isSecSuggChecked = secondSuggestionEl.checked;
-    var thirdSuggestionEl = <HTMLInputElement> document.getElementById("third_suggestion");
-    var isThirdSuggChecked = thirdSuggestionEl.checked;
-
-    var allSummary = '';
-    allSummary = isFirstSuggChecked ? this.suggestionRes.summary1 : '';
-    allSummary = isSecSuggChecked ? allSummary += this.suggestionRes.summary2 : allSummary;
-    allSummary = isThirdSuggChecked ? allSummary += this.suggestionRes.summary3 : allSummary;
-    firstSuggestionEl.checked = false;
-    secondSuggestionEl.checked = false;
-    thirdSuggestionEl.checked = false;
-
-    var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
-    summaryText.textContent = allSummary;
-
-    this.isDisplayed = false;
   }
   
 }

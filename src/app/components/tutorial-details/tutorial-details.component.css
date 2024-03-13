@@ -1,0 +1,56 @@
+.form_container-header {
+    text-align: center;
+}
+
+.suggestion-input{
+    margin: 10px 0px;
+    padding: 10px 30px;
+    transition: box-shadow .3s;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.suggestion-input:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }
+
+#summary-btn {
+    width: 100%;
+    background-color: #1867a5;
+    border-color: #1867a5;
+}
+
+#submit-btn {
+    width: 100%;
+    background-color: #003261;
+    border-color: #003261;
+}
+
+#loading-item {
+    display: none;
+}
+
+.content_container {
+    height: 100vh;
+}
+
+.margin-success {
+    margin-top: 20%;
+}
+
+.padding-left {
+    padding-left: 25px;
+}
+
+.toast-container{
+    transition: box-shadow .3s;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #3a874f;
+    color: #fff;
+}
+
+.toast-container:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}

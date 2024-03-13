@@ -1,0 +1,46 @@
+.nav-bg {
+    background-color: #3e6589;
+}
+
+.body_container {
+    background: repeating-linear-gradient(
+    190deg,
+    rgb(224, 236, 242, 0.5) 40px,
+    rgb(165, 192, 223, 0.5) 80px,
+    rgb(122, 158, 199, 0.5) 120px,
+    rgb(62, 101, 137, 0.5) 160px,
+    rgb(5, 37, 66, 0.5) 200px,
+    rgb(224, 236, 242, 0.5) 240px,
+    rgb(165, 192, 223, 0.5) 280px,
+    rgb(224, 236, 242, 0.5) 300px
+  ),
+  repeating-linear-gradient(
+    -190deg,
+    rgb(224, 236, 242, 0.5) 30px,
+    rgb(165, 192, 223, 0.5) 60px,
+    rgb(122, 158, 199, 0.5) 90px,
+    rgb(62, 101, 137, 0.5) 120px,
+    rgb(5, 37, 66, 0.5) 150px,
+    rgb(224, 236, 242, 0.5) 180px,
+    rgb(165, 192, 223, 0.5) 210px,
+    rgb(224, 236, 242, 0.5) 230px
+  ),
+  repeating-linear-gradient(
+    23deg,
+    rgb(224, 236, 242) 50px,
+    rgb(165, 192, 223) 100px,
+    rgb(122, 158, 199) 150px,
+    rgb(62, 101, 137) 200px,
+    rgb(5, 37, 66) 250px,
+    rgb(224, 236, 242) 300px,
+    rgb(165, 192, 223) 350px,
+    rgb(224, 236, 242) 370px
+  );
+}
+
+.container {
+  background-color: #f7f8f9;
+  padding: 20px 40px;
+  border-radius: 10px;
+  height: 100%;
+}

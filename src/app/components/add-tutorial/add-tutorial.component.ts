@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormSummaryDto, FormUi, SuggestionType } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { timeInterval } from 'rxjs';
 
 @Component({
   selector: 'app-add-tutorial',
@@ -8,12 +10,6 @@ import { TutorialService } from 'src/app/services/tutorial.service';
   styleUrls: ['./add-tutorial.component.css']
 })
 export class AddTutorialComponent implements OnInit {
-
-  public first_suggestion = '';
-  public second_suggestion = '';
-  public third_suggestion = '';
-  public isDisplayed = false;
-  public suggestionRes!: SuggestionType;
 
   formUi: FormUi = {
     id: 0,
@@ -228,11 +224,17 @@ export class AddTutorialComponent implements OnInit {
     valuablesWard: false,
     informYes: false,
     informNo: false,
-};
+  };
 
-  submitted = false;
+  public first_suggestion = '';
+  public second_suggestion = '';
+  public third_suggestion = '';
+  public areSuggestionsAvailable = false;
+  public isSuggesting = false;
+  public suggestionRes!: SuggestionType;
 
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private tutorialService: TutorialService, private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -241,7 +243,11 @@ export class AddTutorialComponent implements OnInit {
     const data = this.getFormData();
     console.log("data")
     console.log(data)
+    if (this.isSuggesting) {
+      return;
+    }
 
+    this.isSuggesting = true;
     this.tutorialService.get_suggestion(data)
       .subscribe({
         next: (res: any) => {
@@ -252,31 +258,29 @@ export class AddTutorialComponent implements OnInit {
           console.log(this.suggestionRes?.summary2);
           console.log(this.suggestionRes?.summary3);
 
-          this.isDisplayed = true;
+          this.areSuggestionsAvailable = true;
+          this.isSuggesting = false;
           this.first_suggestion = this.suggestionRes.summary1;
           this.second_suggestion = this.suggestionRes.summary2;
           this.third_suggestion = this.suggestionRes.summary3;
         },
-        error: (e) => console.error(e)
+        error: (e) => {
+          console.error(e);
+          this.isSuggesting = false;
+        }
       });
   }
 
-
   clearSuggestions(): void {
-    var firstSuggestionEl = <HTMLInputElement> document.getElementById("first_suggestion");
+    var firstSuggestionEl = <HTMLInputElement>document.getElementById("first_suggestion");
     var isFirstSuggChecked = firstSuggestionEl.checked;
-    var secondSuggestionEl = <HTMLInputElement> document.getElementById("second_suggestion");
+    var secondSuggestionEl = <HTMLInputElement>document.getElementById("second_suggestion");
     var isSecSuggChecked = secondSuggestionEl.checked;
-    var thirdSuggestionEl = <HTMLInputElement> document.getElementById("third_suggestion");
+    var thirdSuggestionEl = <HTMLInputElement>document.getElementById("third_suggestion");
     var isThirdSuggChecked = thirdSuggestionEl.checked;
 
-    var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
+    var summaryText = <HTMLTextAreaElement>document.getElementById("summary_text");
     var allSummary = summaryText.innerHTML;
-    console.log("allSummary")
-    console.log(allSummary)
-    console.log(firstSuggestionEl.checked)
-    console.log(secondSuggestionEl.checked)
-    console.log(thirdSuggestionEl.checked)
 
     allSummary = isFirstSuggChecked ? allSummary += this.suggestionRes.summary1 : allSummary;
     allSummary = isSecSuggChecked ? allSummary += this.suggestionRes.summary2 : allSummary;
@@ -285,20 +289,14 @@ export class AddTutorialComponent implements OnInit {
     secondSuggestionEl.checked = false;
     thirdSuggestionEl.checked = false;
 
-    console.log("allSummary")
-    console.log(allSummary)
-    console.log(firstSuggestionEl.checked)
-    console.log(secondSuggestionEl.checked)
-    console.log(thirdSuggestionEl.checked)
-
     summaryText.textContent = allSummary;
 
-    this.isDisplayed = false;
+    this.areSuggestionsAvailable = false;
   }
 
   saveForm(): void {
     const data = this.getFormData();
-    
+
     console.log("data")
     console.log(data)
 
@@ -314,247 +312,268 @@ export class AddTutorialComponent implements OnInit {
   }
 
   saveSummary(formId: number): void {
-    var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
+    var summaryText = <HTMLTextAreaElement>document.getElementById("summary_text");
     if (summaryText.value && summaryText.value.length > 0) {
       var summaryObj: FormSummaryDto = new FormSummaryDto();
-    summaryObj.content = summaryText.value;
-    summaryObj.admissionFormFk = formId;
-    console.log(" summaryText.value ");
-    console.log( summaryText.value);
+      summaryObj.content = summaryText.value;
+      summaryObj.admissionFormFk = formId;
+      console.log(" summaryText.value ");
+      console.log(summaryText.value);
 
-    
-    this.tutorialService.save_summary(summaryObj)
-      .subscribe({
-        next: (res) => {
-          console.log("res");
-          console.log(res);
-          this.submitted = true;
-        },
-        error: (e) => console.error(e)
-      });
+
+      this.tutorialService.save_summary(summaryObj)
+        .subscribe({
+          next: (res) => {
+            console.log("res");
+            console.log(res);
+            summaryText.value = '';
+            this.newForm();
+            this.showToast();
+          },
+          error: (e) => console.error(e)
+        });
     } else {
-      this.submitted = true;
+      this.showToast();
     }
   }
 
-  newForm(): void {
-    this.submitted = false;
-    this.formUi =  {    id: 0,
-      patientFname: '',
-      patientLname: '',
-      weight: '',
-      height: '',
-      medDrug1: '',
-      medDosage1: '',
-      medMorning1: false,
-      medNoon1: false,
-      medEvening1: false,
-      medNight1: false,
-      medDrug2: '',
-      medDosage2: '',
-      medMorning2: false,
-      medNoon2: false,
-      medEvening2: false,
-      medNight2: false,
-      medDrug3: '',
-      medDosage3: '',
-      medMorning3: false,
-      medNoon3: false,
-      medEvening3: false,
-      medNight3: false,
-      liveAloneNo: false,
-      liveAloneYes: false,
-      liveAloneLift: false,
-      liveAloneFloor: '',
-      obliationsNo: false,
-      obliationsYes: false,
-      relativeSurname1: '',
-      relativeFname1: '',
-      relativePhone1: '',
-      relativeRel1: '',
-      relativeSurname2: '',
-      relativeFname2: '',
-      relativePhone2: '',
-      relativeRel2: '',
-      relativeSurname3: '',
-      relativeFname3: '',
-      relativePhone3: '',
-      relativeRel3: '',
-      careNo: false,
-      careYes: false,
-      careDegree1: false,
-      careDegree2: false,
-      careDegree3: false,
-      careDegree4: false,
-      careDegree5: false,
-      hospitalizedNo: false,
-      hospitalizedYes: false,
-      hospAbroadPlace: '',
-      hospAbroadTime: '',
-      commNoImpairment: false,
-      commForeignLang: false,
-      commForeignLangYes: false,
-      commForeignLangNo: false,
-      commSignLang: false,
-      commDisorder: false,
-      commTrach: false,
-      visionLeft: false,
-      visionRight: false,
-      blindnessLeft: false,
-      blindnessRight: false,
-      visualAidLeft: false,
-      visualAidRight: false,
-      hearingNoImp: false,
-      hearingAidRight: false,
-      hearingAidLeft: false,
-      hearingHardRight: false,
-      hearingHardLeft: false,
-      deafnessRight: false,
-      deafnessLeft: false,
-      disorNoImp: false,
-      disorTime: false,
-      disorPlace: false,
-      disorPerson: false,
-      understNoImp: false,
-      understConfusion: false,
-      understNerv: false,
-      understAltered: false,
-      disabilityNo: false,
-      disabilityYes: false,
-      disabilityHemiYes: false,
-      disabilityHemi: '',
-      disabilityAmputYes: false,
-      disabilityAmput: '',
-      disabilityParaYes: false,
-      disabilityPara: '',
-      disabilityTetraYes: false,
-      disabilityTetra: '',
-      disabilityLimbsYes: false,
-      disabilityLimbs: '',
-      disabilityMisalYes: false,
-      disabilityMisal: '',
-      disabilityProYes: false,
-      disabilityProNo: false,
-      sleepNoImp: false,
-      sleepDiff: false,
-      sleepBreath: false,
-      dietWhole: false,
-      dietNoSugar: false,
-      dietVeg: false,
-      dietDiabetic: false,
-      ingestOral: false,
-      ingestFeed: false,
-      ingestParent: false,
-      excNoImp: false,
-      excIncont: false,
-      excIncrease: false,
-      excBladder: false,
-      bowelNoImp: false,
-      bowelIncon: false,
-      bowelDiarr: false,
-      bowelCons: false,
-      bowelPraetor: false,
-      bowelLax: false,
-      bowelAids: false,
-      painNo: false,
-      painYes: false,
-      painPart1: '',
-      painSide1: '',
-      painState1: '',
-      painRest1: '',
-      painExc1: '',
-      painFreq1: '',
-      painType1: '',
-      painPart2: '',
-      painSide2: '',
-      painState2: '',
-      painRest2: '',
-      painExc2: '',
-      painFreq2: '',
-      painType2: '',
-      painPart3: '',
-      painSide3: '',
-      painState3: '',
-      painRest3: '',
-      painExc3: '',
-      painFreq3: '',
-      painType3: '',
-      substNo: false,
-      substYes: false,
-      substSmoker: false,
-      substSmokerNr: '',
-      substFormer: false,
-      substAlcohol: false,
-      substAlcoholReg: false,
-      substAlcoholOcc: false,
-      substNarc: false,
-      ulcersNo: false,
-      ulcersYes: false,
-      ulcersWoundNo: false,
-      ulcersWoundYes: false,
-      skinNoFind: false,
-      skinWithFind: false,
-      skinDry: false,
-      skinMoist: false,
-      skinDerm: false,
-      skinParch: false,
-      skinHema: false,
-      careDressSelf: false,
-      careDressSupp: false,
-      careFoodSelf: false,
-      careFoodSupp: false,
-      careExcSelf: false,
-      careExcSup: false,
-      careWalkSelf: false,
-      careWalkSupp: false,
-      objNo: false,
-      objYes: false,
-      objCompress: false,
-      objDevice: false,
-      objOrtho: false,
-      objPros: false,
-      objOthers: '',
-      skinIntact: false,
-      skinNotInt: false,
-      skinNotAsc: false,
-      inletsNo: false,
-      inletsYes: false,
-      inletsPortYes: false,
-      inletsPortNo: false,
-      inletsProbesYes: false,
-      inletsProbesNo: false,
-      inletsUrineYes: false,
-      inletsUrineNo: false,
-      stomataYes: false,
-      stomataNo: false,
-      fallNo: false,
-      fallYes: false,
-      fall1x: false,
-      fall2x: false,
-      fall3x: false,
-      fallMore: false,
-      drugsNo: false,
-      drugsYes: false,
-      diagnoseSync: false,
-      diagnoseEpil: false,
-      diagnoseHunt: false,
-      diagnoseDiab: false,
-      diagnoseNo: false,
-      allergyNo: false,
-      allergyYes: false,
-      allergyKnown1: '',
-      allergyKnown2: '',
-      allergyKnown3: '',
-      valuablesYes: false,
-      valuablesNo: false,
-      valuablesRel: false,
-      valuablesWard: false,
-      informYes: false,
-      informNo: false,
-  };
+  showToast() {
+    const toastElement = document.querySelector('.toast');
+    if (toastElement) {
+      (toastElement as HTMLElement).classList.add('show');
+    }
+    this.afterSubitting();
   }
 
+  afterSubitting() {
+    setTimeout(() => {
+      this.router.navigate(['']);
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }, 2500);
+  }
   
+  newForm(): void {
+  this.formUi = {
+    id: 0,
+    patientFname: '',
+    patientLname: '',
+    weight: '',
+    height: '',
+    medDrug1: '',
+    medDosage1: '',
+    medMorning1: false,
+    medNoon1: false,
+    medEvening1: false,
+    medNight1: false,
+    medDrug2: '',
+    medDosage2: '',
+    medMorning2: false,
+    medNoon2: false,
+    medEvening2: false,
+    medNight2: false,
+    medDrug3: '',
+    medDosage3: '',
+    medMorning3: false,
+    medNoon3: false,
+    medEvening3: false,
+    medNight3: false,
+    liveAloneNo: false,
+    liveAloneYes: false,
+    liveAloneLift: false,
+    liveAloneFloor: '',
+    obliationsNo: false,
+    obliationsYes: false,
+    relativeSurname1: '',
+    relativeFname1: '',
+    relativePhone1: '',
+    relativeRel1: '',
+    relativeSurname2: '',
+    relativeFname2: '',
+    relativePhone2: '',
+    relativeRel2: '',
+    relativeSurname3: '',
+    relativeFname3: '',
+    relativePhone3: '',
+    relativeRel3: '',
+    careNo: false,
+    careYes: false,
+    careDegree1: false,
+    careDegree2: false,
+    careDegree3: false,
+    careDegree4: false,
+    careDegree5: false,
+    hospitalizedNo: false,
+    hospitalizedYes: false,
+    hospAbroadPlace: '',
+    hospAbroadTime: '',
+    commNoImpairment: false,
+    commForeignLang: false,
+    commForeignLangYes: false,
+    commForeignLangNo: false,
+    commSignLang: false,
+    commDisorder: false,
+    commTrach: false,
+    visionLeft: false,
+    visionRight: false,
+    blindnessLeft: false,
+    blindnessRight: false,
+    visualAidLeft: false,
+    visualAidRight: false,
+    hearingNoImp: false,
+    hearingAidRight: false,
+    hearingAidLeft: false,
+    hearingHardRight: false,
+    hearingHardLeft: false,
+    deafnessRight: false,
+    deafnessLeft: false,
+    disorNoImp: false,
+    disorTime: false,
+    disorPlace: false,
+    disorPerson: false,
+    understNoImp: false,
+    understConfusion: false,
+    understNerv: false,
+    understAltered: false,
+    disabilityNo: false,
+    disabilityYes: false,
+    disabilityHemiYes: false,
+    disabilityHemi: '',
+    disabilityAmputYes: false,
+    disabilityAmput: '',
+    disabilityParaYes: false,
+    disabilityPara: '',
+    disabilityTetraYes: false,
+    disabilityTetra: '',
+    disabilityLimbsYes: false,
+    disabilityLimbs: '',
+    disabilityMisalYes: false,
+    disabilityMisal: '',
+    disabilityProYes: false,
+    disabilityProNo: false,
+    sleepNoImp: false,
+    sleepDiff: false,
+    sleepBreath: false,
+    dietWhole: false,
+    dietNoSugar: false,
+    dietVeg: false,
+    dietDiabetic: false,
+    ingestOral: false,
+    ingestFeed: false,
+    ingestParent: false,
+    excNoImp: false,
+    excIncont: false,
+    excIncrease: false,
+    excBladder: false,
+    bowelNoImp: false,
+    bowelIncon: false,
+    bowelDiarr: false,
+    bowelCons: false,
+    bowelPraetor: false,
+    bowelLax: false,
+    bowelAids: false,
+    painNo: false,
+    painYes: false,
+    painPart1: '',
+    painSide1: '',
+    painState1: '',
+    painRest1: '',
+    painExc1: '',
+    painFreq1: '',
+    painType1: '',
+    painPart2: '',
+    painSide2: '',
+    painState2: '',
+    painRest2: '',
+    painExc2: '',
+    painFreq2: '',
+    painType2: '',
+    painPart3: '',
+    painSide3: '',
+    painState3: '',
+    painRest3: '',
+    painExc3: '',
+    painFreq3: '',
+    painType3: '',
+    substNo: false,
+    substYes: false,
+    substSmoker: false,
+    substSmokerNr: '',
+    substFormer: false,
+    substAlcohol: false,
+    substAlcoholReg: false,
+    substAlcoholOcc: false,
+    substNarc: false,
+    ulcersNo: false,
+    ulcersYes: false,
+    ulcersWoundNo: false,
+    ulcersWoundYes: false,
+    skinNoFind: false,
+    skinWithFind: false,
+    skinDry: false,
+    skinMoist: false,
+    skinDerm: false,
+    skinParch: false,
+    skinHema: false,
+    careDressSelf: false,
+    careDressSupp: false,
+    careFoodSelf: false,
+    careFoodSupp: false,
+    careExcSelf: false,
+    careExcSup: false,
+    careWalkSelf: false,
+    careWalkSupp: false,
+    objNo: false,
+    objYes: false,
+    objCompress: false,
+    objDevice: false,
+    objOrtho: false,
+    objPros: false,
+    objOthers: '',
+    skinIntact: false,
+    skinNotInt: false,
+    skinNotAsc: false,
+    inletsNo: false,
+    inletsYes: false,
+    inletsPortYes: false,
+    inletsPortNo: false,
+    inletsProbesYes: false,
+    inletsProbesNo: false,
+    inletsUrineYes: false,
+    inletsUrineNo: false,
+    stomataYes: false,
+    stomataNo: false,
+    fallNo: false,
+    fallYes: false,
+    fall1x: false,
+    fall2x: false,
+    fall3x: false,
+    fallMore: false,
+    drugsNo: false,
+    drugsYes: false,
+    diagnoseSync: false,
+    diagnoseEpil: false,
+    diagnoseHunt: false,
+    diagnoseDiab: false,
+    diagnoseNo: false,
+    allergyNo: false,
+    allergyYes: false,
+    allergyKnown1: '',
+    allergyKnown2: '',
+    allergyKnown3: '',
+    valuablesYes: false,
+    valuablesNo: false,
+    valuablesRel: false,
+    valuablesWard: false,
+    informYes: false,
+    informNo: false,
+  };
+}
+
+
   private getFormData() {
     return {
       patientFname: this.formUi.patientFname,
@@ -635,10 +654,10 @@ export class AddTutorialComponent implements OnInit {
       understNoImp: this.formUi.understNoImp,
       understConfusion: this.formUi.understConfusion,
       understNerv: this.formUi.understNerv,
-      understAltered: this.formUi.understAltered,    
-      disabilityNo: this.formUi.disabilityNo,  
-      disabilityYes: this.formUi.disabilityNo,  
-      disabilityHemiYes: this.formUi.disabilityHemiYes,  
+      understAltered: this.formUi.understAltered,
+      disabilityNo: this.formUi.disabilityNo,
+      disabilityYes: this.formUi.disabilityNo,
+      disabilityHemiYes: this.formUi.disabilityHemiYes,
       disabilityHemi: this.formUi.disabilityHemi,
       disabilityAmputYes: this.formUi.disabilityAmputYes,
       disabilityAmput: this.formUi.disabilityAmput,
@@ -770,5 +789,4 @@ export class AddTutorialComponent implements OnInit {
       informNo: this.formUi.informNo,
     };
   }
-
 }

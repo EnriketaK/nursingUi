@@ -1,1234 +1,1424 @@
 <div>
-  <div>
-    <div *ngIf="!submitted">     
-      <div class="section_container-header form-group">
-        <h2>Nursing admission sheet</h2>
-      </div> 
+  <div class="form_container-header form-group">
+    <h2>Nursing admission sheet</h2>
+  </div>
 
-      <div class="question_container form-group">
-        <p class="question-parag">Dear patients,
-          we require further information from you to provide you with individual support.
-          We kindly ask you to complete the following form.
-          Please do not hesitate to contact us should you have any questions regarding the form. Thank you very much.
-          </p>
-      </div>
+  <div class="question_container form-group">
+    <p class="question-parag">Dear patients,
+      we require further information from you to provide you with individual support.
+      We kindly ask you to complete the following form.
+      Please do not hesitate to contact us should you have any questions regarding the form. Thank you very much.
+    </p>
+  </div>
 
-      <div class="subsection_container-header form-group">
-        <h5>Patient label</h5>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="patientLname" placeholder="First Name" [(ngModel)]="formUi.patientLname">
-        </div>
-        <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="patientFname" placeholder="Surname" [(ngModel)]="formUi.patientFname">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="weight" placeholder="Weight" [(ngModel)]="formUi.weight">
-        </div>
-        <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="height" placeholder="Height" [(ngModel)]="formUi.height">
-        </div>
-      </div>
-    
-      <div class="subsection_container-header form-group">
-        <h5>Regular medication: </h5>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input type="text" class="form-control" id="medDrug1" placeholder="Drug name" [(ngModel)]="formUi.medDrug1">
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="text" class="form-control" id="medDosage1" placeholder="Dosage" [(ngModel)]="formUi.medDosage1">
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medMorning1" [(ngModel)]="formUi.medMorning1">
-          <label class="form-check-label" for="medMorning1">in the morning</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medNoon1" [(ngModel)]="formUi.medNoon1">
-          <label class="form-check-label" for="medNoon1">at noon</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medEvening1" [(ngModel)]="formUi.medEvening1">
-          <label class="form-check-label" for="medEvening1">in the evening</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medNight1" [(ngModel)]="formUi.medNight1">
-          <label class="form-check-label" for="medNight1">at night</label>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input type="text" class="form-control" id="medDrug2" placeholder="Drug name" [(ngModel)]="formUi.medDrug2">
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="text" class="form-control" id="medDosage2" placeholder="Dosage" [(ngModel)]="formUi.medDosage2">
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medMorning2" [(ngModel)]="formUi.medMorning2">
-          <label class="form-check-label" for="medMorning2">in the morning</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medNoon2" [(ngModel)]="formUi.medNoon2">
-          <label class="form-check-label" for="medNoon2">at noon</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medEvening2" [(ngModel)]="formUi.medEvening2">
-          <label class="form-check-label" for="medEvening2">in the evening</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medNight2" [(ngModel)]="formUi.medNight2">
-          <label class="form-check-label" for="medNight2">at night</label>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input type="text" class="form-control" id="medDrug3" placeholder="Drug name" [(ngModel)]="formUi.medDrug3">
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="text" class="form-control" id="medDosage3" placeholder="Dosage" [(ngModel)]="formUi.medDosage3">
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medMorning3" [(ngModel)]="formUi.medMorning3">
-          <label class="form-check-label" for="medMorning3">in the morning</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medNoon3" [(ngModel)]="formUi.medNoon3">
-          <label class="form-check-label" for="medNoon3">at noon</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medEvening3" [(ngModel)]="formUi.medEvening3">
-          <label class="form-check-label" for="medEvening3">in the evening</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="medNight3" [(ngModel)]="formUi.medNight3">
-          <label class="form-check-label" for="medNight3">at night</label>
-        </div>
-      </div>
-
-      <div class="section_container-header form-group">
-        <h3>1. Care situation</h3>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Living situation</h5>
-      </div>
-      <div class="question_container form-group">
-        <p class="question-parag">Living alone</p>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="liveAloneNo" [(ngModel)]="formUi.liveAloneNo">
-            <label class="form-check-label" for="liveAloneNo">No</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="liveAloneYes" [(ngModel)]="formUi.liveAloneYes">
-            <label class="form-check-label" for="liveAloneYes">Yes</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="liveAloneLift" [(ngModel)]="formUi.liveAloneLift">
-            <label class="form-check-label" for="liveAloneLift">Lift/Elevator</label>
-          </div>
-        </div>
-        <div class="form-group col-md-9">
-          <input type="text" class="form-control" id="liveAloneFloor" placeholder="Floor level" [(ngModel)]="formUi.liveAloneFloor">
-        </div>
-      </div>
-      
-      <div class="question_container form-group">
-        <p class="question-parag">Unregulated obligations/dependencies resulting from your personal environment</p>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="obliationsNo" [(ngModel)]="formUi.obliationsNo">
-          <label class="form-check-label" for="obliationsNo">No</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="obliationsYes" [(ngModel)]="formUi.obliationsYes">
-          <label class="form-check-label" for="obliationsYes">Yes</label>
-        </div>
-      </div>
-      
-      
-      <div class="subsection_container-header form-group">
-        <h5>Relatives/Emergency contacts</h5>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeSurname1" placeholder="Surname" [(ngModel)]="formUi.relativeSurname1">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeFname1" placeholder="First Name" [(ngModel)]="formUi.relativeFname1">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativePhone1" placeholder="Phone" [(ngModel)]="formUi.relativePhone1">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeRel1" placeholder="Relationship" [(ngModel)]="formUi.relativeRel1">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeSurname2" placeholder="Surname"  [(ngModel)]="formUi.relativeSurname2" name="relativeSurname2">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeFname2" placeholder="First Name" [(ngModel)]="formUi.relativeFname2" name="relativeFname2">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativePhone2" placeholder="Phone" [(ngModel)]="formUi.relativePhone2" name="relativePhone2">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeRel2" placeholder="Relationship" [(ngModel)]="formUi.relativeRel2" name="relativeRel2">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeSurname3" placeholder="Surname"  [(ngModel)]="formUi.relativeSurname3" name="relativeSurname3">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeFname3" placeholder="First Name"  [(ngModel)]="formUi.relativeFname3" name="relativeFname3">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativePhone3" placeholder="Phone" [(ngModel)]="formUi.relativePhone3" name="relativePhone3">
-        </div>
-        <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="relativeRel3" placeholder="Relationship"   [(ngModel)]="formUi.relativeSurname3"name="relativeSurname3">
-        </div>
-      </div>
-      
-      
-      <div class="subsection_container form-group">
-        <h5>Degree of care</h5>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="careNo" [(ngModel)]="formUi.careNo" name="careNo">
-          <label class="form-check-label" for="careNo">No</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="careYes" [(ngModel)]="formUi.careYes" name="careYes">
-          <label class="form-check-label" for="careYes">Yes = degree of care</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="careDegree1" [(ngModel)]="formUi.careDegree1" name="careDegree1">
-          <label class="form-check-label" for="careDegree1">1</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="careDegree2" [(ngModel)]="formUi.careDegree2" name="careDegree2">
-          <label class="form-check-label" for="careDegree2">2</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="careDegree3" [(ngModel)]="formUi.careDegree3" name="careDegree3">
-          <label class="form-check-label" for="careDegree3">3</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="careDegree4" [(ngModel)]="formUi.careDegree4" name="careDegree4">
-          <label class="form-check-label" for="careDegree4">4</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="careDegree5" [(ngModel)]="formUi.careDegree5" name="careDegree5">
-          <label class="form-check-label" for="careDegree5">5</label>
-        </div>
-      </div>
-      
-      <div class="question_container form-group">
-        <p class="question-parag">Have you been hospitalized for more than 3 days in the past 12 months</p>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="hospitalizedNo" [(ngModel)]="formUi.hospitalizedNo" name="hospitalizedNo">
-          <label class="form-check-label" for="hospitalizedNo">No</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="hospitalizedYes" [(ngModel)]="formUi.hospitalizedYes" name="hospitalizedYes">
-          <label class="form-check-label" for="hospitalizedYes">Yes</label>
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Hospitalization abroad</h5>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="hospAbroadPlace" placeholder="Place" [(ngModel)]="formUi.hospAbroadPlace" name="hospAbroadPlace">
-        </div>
-        <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="hospAbroadTime" placeholder="Time" [(ngModel)]="formUi.hospAbroadTime" name="hospAbroadTime">
-        </div>
-      </div>
-      
-      <div class="section_container-header form-group">
-        <h3>2. Current medical state</h3>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Communication</h5>
-      </div>
-      <div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="commNoImpairment" [(ngModel)]="formUi.commNoImpairment" name="commNoImpairment">
-          <label class="form-check-label" for="commNoImpairment">no impairment</label>
-        </div>
-        <div class="form-row">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="commForeignLang" [(ngModel)]="formUi.commForeignLang" name="commForeignLang">
-            <label class="form-check-label" for="commForeignLang">measures for communication in a foreign language</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="commForeignLangYes" [(ngModel)]="formUi.commForeignLangYes" name="commForeignLangYes">
-            <label class="form-check-label" for="commForeignLangYes">Yes</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="commForeignLangNo" [(ngModel)]="formUi.commForeignLangNo" name="commForeignLangNo">
-            <label class="form-check-label" for="commForeignLangNo">No</label>
-          </div>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="commSignLang"  [(ngModel)]="formUi.commSignLang" name="commSignLang">
-          <label class="form-check-label" for="commSignLang">sign Language</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="commDisorder" [(ngModel)]="formUi.commDisorder" name="commDisorder">
-          <label class="form-check-label" for="commDisorder">speech disorder</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="commTrach" [(ngModel)]="formUi.commTrach" name="commTrach">
-          <label class="form-check-label" for="commTrach">tracheostoma</label>
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Vision</h5>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">visual impairment</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="visionLeft"  [(ngModel)]="formUi.visionLeft" name="visionLeft">
-            <label class="form-check-label" for="visionLeft">left eye</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="visionRight" [(ngModel)]="formUi.visionRight" name="visionRight">
-            <label class="form-check-label" for="visionRight">right eye</label>
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">blindness</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="blindnessLeft"  [(ngModel)]="formUi.blindnessLeft" name="blindnessLeft">
-            <label class="form-check-label" for="blindnessLeft">left eye</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="blindnessRight"  [(ngModel)]="formUi.blindnessRight" name="blindnessRight">
-            <label class="form-check-label" for="blindnessRight">right eye</label>
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">visual aids in place?</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="visualAidLeft"  [(ngModel)]="formUi.visualAidLeft" name="visualAidLeft">
-            <label class="form-check-label" for="visualAidLeft">left eye</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="visualAidRight"  [(ngModel)]="formUi.visualAidRight" name="visualAidRight">
-            <label class="form-check-label" for="visualAidRight">right eye</label>
-          </div>
-        </div>
-      </div>
-      
-      
-      <div class="subsection_container-header form-group">
-        <h5>Hearing</h5>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="hearingNoImp" [(ngModel)]="formUi.hearingNoImp" name="hearingNoImp">
-        <label class="form-check-label" for="hearingNoImp">no impairment</label>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">hearing aid</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="hearingAidRight" [(ngModel)]="formUi.hearingAidRight" name="hearingAidRight">
-            <label class="form-check-label" for="hearingAidRight">right ear</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="hearingAidLeft" [(ngModel)]="formUi.hearingAidLeft" name="hearingAidLeft">
-            <label class="form-check-label" for="hearingAidLeft">left ear</label>
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">hard of hearing</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="hearingHardRight"  [(ngModel)]="formUi.hearingHardRight" name="hearingHardRight">
-            <label class="form-check-label" for="hearingHardRight">right ear</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="hearingHardLeft" [(ngModel)]="formUi.hearingHardLeft" name="hearingHardLeft">
-            <label class="form-check-label" for="hearingHardLeft">left ear</label>
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">deafness</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="deafnessRight" [(ngModel)]="formUi.deafnessRight" name="deafnessRight">
-            <label class="form-check-label" for="deafnessRight">right ear</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="deafnessLeft" [(ngModel)]="formUi.deafnessLeft" name="deafnessLeft">
-            <label class="form-check-label" for="deafnessLeft">left ear</label>
-          </div>
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Disorientation</h5>
-      </div>
-      <div class="form-check form-group">
-        <input class="form-check-input" type="checkbox" id="disorNoImp" [(ngModel)]="formUi.disorNoImp" name="disorNoImp">
-        <label class="form-check-label" for="disorNoImp">no impairment</label>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">disorientation of</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="disorTime" [(ngModel)]="formUi.disorTime" name="disorTime">
-            <label class="form-check-label" for="disorTime">time </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="disorPlace" [(ngModel)]="formUi.disorPlace" name="disorPlace">
-            <label class="form-check-label" for="disorPlace">place </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="disorPerson" [(ngModel)]="formUi.disorPerson" name="disorPerson">
-            <label class="form-check-label" for="disorPerson">person </label>
-          </div>
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Understanding (thinking)</h5>
+  <div class="form-row subsection_container-header form-group">
+    <h5>Patient label</h5>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="patientLname" placeholder="First Name"
+        [(ngModel)]="formUi.patientLname">
     </div>
-    <div>
-        <div class="form-check form-group">
-            <input class="form-check-input" type="checkbox" id="understNoImp" name="understNoImp" [(ngModel)]="formUi.understNoImp">
-            <label class="form-check-label" for="understNoImp">no impairment</label>
-        </div>
-        <div class="form-row form-group">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="understConfusion" name="understConfusion" [(ngModel)]="formUi.understConfusion">
-                <label class="form-check-label" for="understConfusion">confusion</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="understNerv" name="understNerv" [(ngModel)]="formUi.understNerv">
-                <label class="form-check-label" for="understNerv">nervousness / restlessness</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="understAltered" name="understAltered" [(ngModel)]="formUi.understAltered">
-                <label class="form-check-label" for="understAltered">altered consciousness</label>
-            </div>
-        </div>
-    </div>
-    
-    <div class="subsection_container-header form-group">
-        <h5>Disability</h5>
-    </div>
-    <div class="form-row">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="disabilityNo" name="disabilityNo" [(ngModel)]="formUi.disabilityNo">
-            <label class="form-check-label" for="disabilityNo">No</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="disabilityYes" name="disabilityYes" [(ngModel)]="formUi.disabilityYes">
-            <label class="form-check-label" for="disabilityYes">Yes</label>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <input class="form-check-input" type="checkbox" id="disabilityHemiYes" name="disabilityHemiYes" [(ngModel)]="formUi.disabilityHemiYes">
-            <label class="form-check-label" for="disabilityHemiYes">Hemiplegia</label>
-        </div>
-        <div class="form-group col-md-4">
-            <input class="form-check-input" type="checkbox" id="disabilityAmputYes" name="disabilityAmputYes" [(ngModel)]="formUi.disabilityAmputYes">
-            <label class="form-check-label" for="disabilityAmputYes">Amputation</label>
-        </div>
-        <div class="form-group col-md-4">
-            <input class="form-check-input" type="checkbox" id="disabilityParaYes" name="disabilityParaYes" [(ngModel)]="formUi.disabilityParaYes">
-            <label class="form-check-label" for="disabilityParaYes">Paraplegia</label>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" id="disabilityHemi" name="disabilityHemi" placeholder="Hemiplegia" [(ngModel)]="formUi.disabilityHemi">
-        </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" id="disabilityAmput" name="disabilityAmput" placeholder="disabilityAmput" [(ngModel)]="formUi.disabilityAmput">
-        </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" id="disabilityPara" name="disabilityPara" placeholder="Paraplegia" [(ngModel)]="formUi.disabilityPara">
-        </div>
-    </div>
-    
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <p class="question-parag">Prosthetic aids in place?</p>
-        </div>
-        <div class="form-group col-md-8">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="disabilityProYes" name="disabilityProYes" [(ngModel)]="formUi.disabilityProYes">
-                <label class="form-check-label" for="disabilityProYes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="disabilityProNo" name="disabilityProNo" [(ngModel)]="formUi.disabilityProNo">
-                <label class="form-check-label" for="disabilityProNo">No</label>
-            </div>
-        </div>
-    </div>
-    
-    <div class="subsection_container-header form-group">
-        <h5>Sleep</h5>
-    </div>
-    <div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="sleepNoImp" name="sleepNoImp" [(ngModel)]="formUi.sleepNoImp">
-            <label class="form-check-label" for="sleepNoImp">no impairment</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="sleepDiff" name="sleepDiff" [(ngModel)]="formUi.sleepDiff">
-            <label class="form-check-label" for="sleepDiff">difficulty falling asleep or staying asleep (more than 30 min.) </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="sleepBreath" name="sleepBreath" [(ngModel)]="formUi.sleepBreath">
-            <label class="form-check-label" for="sleepBreath">breathing interruptions / dyspnoea (anamnesis determined)</label>
-        </div>
-    </div>
-    
-    <div class="subsection_container-header form-group">
-        <h5>Diet</h5>
-    </div>
-    <div>
-        <div class="form-chec form-check-inline">
-            <input class="form-check-input" type="checkbox" id="dietWhole" name="dietWhole" [(ngModel)]="formUi.dietWhole">
-            <label class="form-check-label" for="dietWhole">whole food</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="dietNoSugar" name="dietNoSugar" [(ngModel)]="formUi.dietNoSugar">
-            <label class="form-check-label" for="dietNoSugar">whole food without sugars</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="dietVeg" name="dietVeg" [(ngModel)]="formUi.dietVeg">
-            <label class="form-check-label" for="dietVeg">vegetarian</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="dietDiabetic" name="dietDiabetic" [(ngModel)]="formUi.dietDiabetic">
-            <label class="form-check-label" for="dietDiabetic">diabetic diet</label>
-        </div>
-    </div>
-    
-    <div class="subsection_container-header form-group">
-        <h5>Ingestion</h5>
-    </div>
-    <div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="ingestOral" name="ingestOral" [(ngModel)]="formUi.ingestOral">
-            <label class="form-check-label" for="ingestOral">oral</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="ingestFeed" name="ingestFeed" [(ngModel)]="formUi.ingestFeed">
-            <label class="form-check-label" for="ingestFeed">feeding tube</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="ingestParent" name="ingestParent" [(ngModel)]="formUi.ingestParent">
-            <label class="form-check-label" for="ingestParent">parental nutrition</label>
-        </div>
-    </div>
-    
-    <div class="subsection_container-header form-group">
-        <h5>Excretion</h5>
-    </div>
-    <div class="subsection_container-header form-group">
-        <h5>Urine</h5>
-    </div>
-    <div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="excNoImp" name="excNoImp" [(ngModel)]="formUi.excNoImp">
-            <label class="form-check-label" for="excNoImp">no impairment</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="excIncont" name="excIncont" [(ngModel)]="formUi.excIncont">
-            <label class="form-check-label" for="excIncont">incontinence</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="excIncrease" name="excIncrease" [(ngModel)]="formUi.excIncrease">
-            <label class="form-check-label" for="excIncrease">increased urination at night</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="excBladder" name="excBladder" [(ngModel)]="formUi.excBladder">
-            <label class="form-check-label" for="excBladder">bladder catheter</label>
-        </div>
-    </div>
-    
-    <div class="subsection_container-header form-group">
-        <h5>Bowel Movement</h5>
-    </div>
-    <div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="bowelNoImp" name="bowelNoImp" [(ngModel)]="formUi.bowelNoImp">
-            <label class="form-check-label" for="bowelNoImp">no impairment</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="bowelIncon" name="bowelIncon" [(ngModel)]="formUi.bowelIncon">
-            <label class="form-check-label" for="bowelIncon">incontinence</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="bowelDiarr" name="bowelDiarr" [(ngModel)]="formUi.bowelDiarr">
-            <label class="form-check-label" for="bowelDiarr">diarrhoea</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="bowelCons" name="bowelCons" [(ngModel)]="formUi.bowelCons">
-            <label class="form-check-label" for="bowelCons">constipation</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="bowelPraetor" name="bowelPraetor" [(ngModel)]="formUi.bowelPraetor">
-            <label class="form-check-label" for="bowelPraetor">anus praetor</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="bowelLax" name="bowelLax" [(ngModel)]="formUi.bowelLax">
-            <label class="form-check-label" for="bowelLax">laxative intake</label>
-        </div>
-        <div class="form-row form-check-inline">
-            <input class="form-check-input" type="checkbox" id="bowelAids" name="bowelAids" [(ngModel)]="formUi.bowelAids">
-            <label class="form-check-label" for="bowelAids">uses aids</label>
-        </div>
-    </div>
-
-    <div class="subsection_container-header form-group">
-      <h5>Pain</h5>
-    </div>
-    <div>
-      <div class="form-row form-check-inline">
-        <input class="form-check-input" type="checkbox" id="painNo" name="painNo" [(ngModel)]="formUi.painNo">
-        <label class="form-check-label" for="painNo">No</label>
-      </div>
-      <div class="form-row form-check-inline">
-        <input class="form-check-input" type="checkbox" id="painYes" name="painYes" [(ngModel)]="formUi.painYes">
-        <label class="form-check-label" for="painYes">Yes</label>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <div class="question_container form-group">
-          <p class="question-parag">Body parts</p>
-        </div>
-      </div>
-      <div class="form-group col-md-3">
-        <div class="question_container form-group">
-          <p class="question-parag">1. right side  2. left side 3. both sides 4. centre</p>
-        </div>
-      </div>
-      <div class="form-group col-md-3">
-        <div class="question_container form-group">
-          <p class="question-parag">1. Acute 2. Chronic 3. tumor-related</p>
-        </div>
-      </div>
-      <div class="form-group col-md-3">
-        <div class="question_container form-group">
-          <p class="question-parag">Intensity at rest: 1 hardly any pain; 10 strongest pain</p>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painPart1" name="painPart1" placeholder="Body part" [(ngModel)]="formUi.painPart1">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painSide1" name="painSide1" placeholder="Side" [(ngModel)]="formUi.painSide1">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painState1" name="painState1" placeholder="State" [(ngModel)]="formUi.painState1">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painRest1" name="painRest1" placeholder="Intensity" [(ngModel)]="formUi.painRest1">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painPart2" name="painPart2" placeholder="Body part" [(ngModel)]="formUi.painPart2">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painSide2" name="painSide2" placeholder="Side" [(ngModel)]="formUi.painSide2">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painState2" name="painState2" placeholder="State" [(ngModel)]="formUi.painState2">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painRest2" name="painRest2" placeholder="Intensity" [(ngModel)]="formUi.painRest2">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painPart3" name="painPart3" placeholder="Body part" [(ngModel)]="formUi.painPart3">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painSide3" name="painSide3" placeholder="Side" [(ngModel)]="formUi.painSide3">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painState3" name="painState3" placeholder="State" [(ngModel)]="formUi.painState3">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painRest3" name="painRest3" placeholder="Intensity" [(ngModel)]="formUi.painRest3">
-      </div>
-    </div>
-    
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <div class="question_container form-group">
-          <p class="question-parag">Intensity during exercise: 1 hardly any pain; 10 strongest pain</p>
-        </div>
-      </div>
-      <div class="form-group col-md-3">
-        <div class="question_container form-group">
-          <p class="question-parag">1. Continuous 2. Frequent 3. Infrequent</p>
-        </div>
-      </div>
-      <div class="form-group col-md-3">
-        <div class="question_container form-group">
-          <p class="question-parag">Type of pain 1. Pulling 2. Colic-like 3. Cramp-like 4. Stinging 5. Dull</p>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painExc1" name="painExc1" placeholder="Intensity" [(ngModel)]="formUi.painExc1">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painFreq1" name="painFreq1" placeholder="Frequency" [(ngModel)]="formUi.painFreq1">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painType1" name="painType1" placeholder="Type" [(ngModel)]="formUi.painType1">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painExc2" name="painExc2" placeholder="Intensity" [(ngModel)]="formUi.painExc2">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painFreq2" name="painFreq2" placeholder="Frequency" [(ngModel)]="formUi.painFreq2">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painType2" name="painType2" placeholder="Type" [(ngModel)]="formUi.painType2">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painExc3" name="painExc3" placeholder="Intensity" [(ngModel)]="formUi.painExc3">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painFreq3" name="painFreq3" placeholder="Frequency" [(ngModel)]="formUi.painFreq3">
-      </div>
-      <div class="form-group col-md-3">
-        <input type="text" class="form-control" id="painType3" name="painType3" placeholder="Type" [(ngModel)]="formUi.painType3">
-      </div>
-    </div>
-    
-    <div class="subsection_container-header form-group">
-      <h5>Substance use</h5>
-    </div>
-    <div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="substNo" name="substNo" [(ngModel)]="formUi.substNo">
-          <label class="form-check-label" for="substNo">No</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="substYes" name="substYes" [(ngModel)]="formUi.substYes">
-          <label class="form-check-label" for="substYes">Yes</label>
-        </div>
-      </div>
-    
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="substSmoker" name="substSmoker" [(ngModel)]="formUi.substSmoker">
-        <label class="form-check-label" for="substSmoker">smoker</label>
-      </div>
-      <div class="form-row form-check-inline">
-        <input type="text" class="form-control" id="substSmokerNr" name="substSmokerNr" placeholder="Nr of cigarettes" [(ngModel)]="formUi.substSmokerNr">
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="substFormer" name="substFormer" [(ngModel)]="formUi.substFormer">
-        <label class="form-check-label" for="substFormer">former smoker</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="substAlcohol" name="substAlcohol" [(ngModel)]="formUi.substAlcohol">
-        <label class="form-check-label" for="substAlcohol">alcohol consumption</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="substAlcoholReg" name="substAlcoholReg" [(ngModel)]="formUi.substAlcoholReg">
-        <label class="form-check-label" for="substAlcoholReg">regular</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="substAlcoholOcc" name="substAlcoholOcc" [(ngModel)]="formUi.substAlcoholOcc">
-        <label class="form-check-label" for="substAlcoholOcc">occasional</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="substNarc" name="substNarc" [(ngModel)]="formUi.substNarc">
-        <label class="form-check-label" for="substNarc">narcotics</label>
-      </div>
-    </div>
-    
-    <div class="subsection_container form-group">
-      <h5>Skin condition / pressure ulcers </h5>
-    </div>
-    <div class="form-row">
-      <div class="form-check form-check-inline">
-        <label class="form-check-label" for="hospitalizedNo">Pressure form-check</label>
-        <input class="form-check-input" type="checkbox" id="ulcersNo" name="ulcersNo" [(ngModel)]="formUi.ulcersNo">
-        <label class="form-check-label" for="ulcersNo">No</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="ulcersYes" name="ulcersYes" [(ngModel)]="formUi.ulcersYes">
-        <label class="form-check-label" for="ulcersYes">Yes</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">Is there another wound</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="ulcersWoundNo" name="ulcersWoundNo" [(ngModel)]="formUi.ulcersWoundNo">
-        <label class="form-check-label" for="ulcersWoundNo">No</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="ulcersWoundYes" name="ulcersWoundYes" [(ngModel)]="formUi.ulcersWoundYes">
-        <label class="form-check-label" for="ulcersWoundYes">Yes</label>
-      </div>
-    </div>
-    
-    <div class="form-row">
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">General skin condition</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="skinNoFind" name="skinNoFind" [(ngModel)]="formUi.skinNoFind">
-        <label class="form-check-label" for="skinNoFind">no findings</label>
-      </div>
-    </div>
-    
-    <div>
-      <div class="form-row form-check-inline">
-        <input class="form-check-input" type="checkbox" id="skinWithFind" name="skinWithFind" [(ngModel)]="formUi.skinWithFind">
-        <label class="form-check-label" for="skinWithFind">with findings </label>
-      </div>
-      <div class="form-row form-check-inline">
-        <input class="form-check-input" type="checkbox" id="skinDry" name="skinDry" [(ngModel)]="formUi.skinDry">
-        <label class="form-check-label" for="skinDry">dry</label>
-      </div>
-      <div class="form-row form-check-inline">
-        <input class="form-check-input" type="checkbox" id="skinMoist" name="skinMoist" [(ngModel)]="formUi.skinMoist">
-        <label class="form-check-label" for="skinMoist">moist</label>
-      </div>
-      <div class="form-row form-check-inline">
-        <input class="form-check-input" type="checkbox" id="skinDerm" name="skinDerm" [(ngModel)]="formUi.skinDerm">
-        <label class="form-check-label" for="skinDerm">dermatological disease</label>
-      </div>
-      <div class="form-row form-check-inline">
-        <input class="form-check-input" type="checkbox" id="skinParch" name="skinParch" [(ngModel)]="formUi.skinParch">
-        <label class="form-check-label" for="skinParch">parchment skin</label>
-      </div>
-      <div class="form-row form-check-inline">
-        <input class="form-check-input" type="checkbox" id="skinHema" name="skinHema" [(ngModel)]="formUi.skinHema">
-        <label class="form-check-label" for="skinHema">hematoma</label>
-      </div>
-    </div>
-    
-
-      <div class="subsection_container-header form-group">
-        <h5>3. Self-care ability</h5>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">personal care / ability to dress oneself</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="careDressSelf" name="careDressSelf" [(ngModel)]="formUi.careDressSelf">
-            <label class="form-check-label" for="careDressSelf">Self-employed</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="careDressSupp" name="careDressSupp" [(ngModel)]="formUi.careDressSupp">
-            <label class="form-check-label" for="careDressSupp">Support required</label>
-          </div>
-        </div>
-      </div>
-      
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">food, drink</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="careFoodSelf" name="careFoodSelf" [(ngModel)]="formUi.careFoodSelf">
-            <label class="form-check-label" for="careFoodSelf">Self-employed</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="careFoodSupp" name="careFoodSupp" [(ngModel)]="formUi.careFoodSupp">
-            <label class="form-check-label" for="careFoodSupp">Support required</label>
-          </div>
-        </div>
-      </div>
-      
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">excretion</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="careExcSelf" name="careExcSelf" [(ngModel)]="formUi.careExcSelf">
-            <label class="form-check-label" for="careExcSelf">Self-employed</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="careExcSup" name="careExcSup" [(ngModel)]="formUi.careExcSup">
-            <label class="form-check-label" for="careExcSup">Support required</label>
-          </div>
-        </div>
-      </div>
-      
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p class="question-parag">walking / transfer</p>
-        </div>
-        <div class="form-group col-md-8">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="careWalkSelf" name="careWalkSelf" [(ngModel)]="formUi.careWalkSelf">
-            <label class="form-check-label" for="careWalkSelf">Self-employed</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="careWalkSupp" name="careWalkSupp" [(ngModel)]="formUi.careWalkSupp">
-            <label class="form-check-label" for="careWalkSupp">Support required</label>
-          </div>
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Objects close to body</h5>
-      </div>
-      <div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="objNo" name="objNo" [(ngModel)]="formUi.objNo">
-          <label class="form-check-label" for="objNo">No</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="objYes" name="objYes" [(ngModel)]="formUi.objYes">
-          <label class="form-check-label" for="objYes">Yes</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="objCompress" name="objCompress" [(ngModel)]="formUi.objCompress">
-          <label class="form-check-label" for="objCompress">compression stockings</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="objDevice" name="objDevice" [(ngModel)]="formUi.objDevice">
-          <label class="form-check-label" for="objDevice">O2 device</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="objOrtho" name="objOrtho" [(ngModel)]="formUi.objOrtho">
-          <label class="form-check-label" for="objOrtho">orthoses</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="objPros" name="objPros" [(ngModel)]="formUi.objPros">
-          <label class="form-check-label" for="objPros">prostheses</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input type="text" class="form-control" id="objOthers" name="objOthers" placeholder="Others" [(ngModel)]="formUi.objOthers">
-        </div>
-      </div>
-      
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <label class="form-check-label">Skin condition of the item</label>
-          <input class="form-check-input" type="checkbox" id="skinIntact" name="skinIntact" [(ngModel)]="formUi.skinIntact">
-          <label class="form-check-label" for="skinIntact">intact</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="skinNotInt" name="skinNotInt" [(ngModel)]="formUi.skinNotInt">
-          <label class="form-check-label" for="skinNotInt">not intact</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="skinNotAsc" name="skinNotAsc" [(ngModel)]="formUi.skinNotAsc">
-          <label class="form-check-label" for="skinNotAsc">not ascertainable</label>
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Inlets and outlets</h5>
-      </div>
-      <div>
-        <div class="form-row">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inletsNo" name="inletsNo" [(ngModel)]="formUi.inletsNo">
-            <label class="form-check-label" for="inletsNo">No</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inletsYes" name="inletsYes" [(ngModel)]="formUi.inletsYes">
-            <label class="form-check-label" for="inletsYes">Yes</label>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <p class="question-parag">Port</p>
-          </div>
-          <div class="form-group col-md-8">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inletsPortYes" name="inletsPortYes" [(ngModel)]="formUi.inletsPortYes">
-              <label class="form-check-label" for="inletsPortYes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inletsPortNo" name="inletsPortNo" [(ngModel)]="formUi.inletsPortNo">
-              <label class="form-check-label" for="inletsPortNo">No</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <p class="question-parag">Probes</p>
-          </div>
-          <div class="form-group col-md-8">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inletsProbesYes" name="inletsProbesYes" [(ngModel)]="formUi.inletsProbesYes">
-              <label class="form-check-label" for="inletsProbesYes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inletsProbesNo" name="inletsProbesNo" [(ngModel)]="formUi.inletsProbesNo">
-              <label class="form-check-label" for="inletsProbesNo">No</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <p class="question-parag">Urinary diversion</p>
-          </div>
-          <div class="form-group col-md-8">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inletsUrineYes" name="inletsUrineYes" [(ngModel)]="formUi.inletsUrineYes">
-              <label class="form-check-label" for="inletsUrineYes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inletsUrineNo" name="inletsUrineNo" [(ngModel)]="formUi.inletsUrineNo">
-              <label class="form-check-label" for="inletsUrineNo">No</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <p class="question-parag">Stomata</p>
-          </div>
-          <div class="form-group col-md-8">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="stomataYes" name="stomataYes" [(ngModel)]="formUi.stomataYes">
-              <label class="form-check-label" for="stomataYes">Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="stomataNo" name="stomataNo" [(ngModel)]="formUi.stomataNo">
-              <label class="form-check-label" for="stomataNo">No</label>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="subsection_container-header form-group">
-        <h5>Risk of falling</h5>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <label class="form-check-label">Have you fallen in the last 12 months</label>
-          <input class="form-check-input" type="checkbox" id="fallNo" name="fallNo" [(ngModel)]="formUi.fallNo">
-          <label class="form-check-label" for="fallNo">No</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="fallYes" name="fallYes" [(ngModel)]="formUi.fallYes">
-          <label class="form-check-label" for="fallYes">Yes, number:</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="fall1x" name="fall1x" [(ngModel)]="formUi.fall1x">
-          <label class="form-check-label" for="fall1x">1x</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="fall2x" name="fall2x" [(ngModel)]="formUi.fall2x">
-          <label class="form-check-label" for="fall2x">2x</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="fall3x" name="fall3x" [(ngModel)]="formUi.fall3x">
-          <label class="form-check-label" for="fall3x">3x</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="fallMore" name="fallMore" [(ngModel)]="formUi.fallMore">
-          <label class="form-check-label" for="fallMore">More common</label>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <label class="form-check-label">psychotropic drugs / sedatives</label>
-          <input class="form-check-input" type="checkbox" id="drugsNo" name="drugsNo" [(ngModel)]="formUi.drugsNo">
-          <label class="form-check-label" for="drugsNo">No</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="drugsYes" name="drugsYes" [(ngModel)]="formUi.drugsYes">
-          <label class="form-check-label" for="drugsYes">Yes</label>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <label class="form-check-label">Diagnoses:</label>
-          <input class="form-check-input" type="checkbox" id="diagnoseSync" name="diagnoseSync" [(ngModel)]="formUi.diagnoseSync">
-          <label class="form-check-label" for="diagnoseSync">syncope (fainting)</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="diagnoseEpil" name="diagnoseEpil" [(ngModel)]="formUi.diagnoseEpil">
-          <label class="form-check-label" for="diagnoseEpil">epilepsy TIA (mini stroke)</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="diagnoseHunt" name="diagnoseHunt" [(ngModel)]="formUi.diagnoseHunt">
-          <label class="form-check-label" for="diagnoseHunt">Huntington’s disease (CNS related)</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="diagnoseDiab" name="diagnoseDiab" [(ngModel)]="formUi.diagnoseDiab">
-          <label class="form-check-label" for="diagnoseDiab">Type 2 diabetes</label>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="diagnoseNo" name="diagnoseNo" [(ngModel)]="formUi.diagnoseNo">
-          <label class="form-check-label" for="diagnoseNo">No</label>
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>4. Allergies</h5>
-      </div>
-      <div class="form-row">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="allergyNo" name="allergyNo" [(ngModel)]="formUi.allergyNo">
-          <label class="form-check-label" for="allergyNo">no known allergies</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="allergyYes" name="allergyYes" [(ngModel)]="formUi.allergyYes">
-          <label class="form-check-label" for="allergyYes">known</label>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <input type="text" class="form-control" id="allergyKnown1" name="allergyKnown1" placeholder="Allergy" [(ngModel)]="formUi.allergyKnown1">
-        </div>
-        <div class="form-group col-md-4">
-          <input type="text" class="form-control" id="allergyKnown2" name="allergyKnown2" placeholder="Allergy" [(ngModel)]="formUi.allergyKnown2">
-        </div>
-        <div class="form-group col-md-4">
-          <input type="text" class="form-control" id="allergyKnown3" name="allergyKnown3" placeholder="Allergy" [(ngModel)]="formUi.allergyKnown3">
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>Do you see yourself in a position to take care of your own valuables?</h5>
-      </div>
-      <div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="valuablesYes" name="valuablesYes" [(ngModel)]="formUi.valuablesYes">
-          <label class="form-check-label" for="valuablesYes">Yes</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="valuablesNo" name="valuablesNo" [(ngModel)]="formUi.valuablesNo">
-          <label class="form-check-label" for="valuablesNo">No</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="valuablesRel" name="valuablesRel" [(ngModel)]="formUi.valuablesRel">
-          <label class="form-check-label" for="valuablesRel">Hand over to relatives</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="valuablesWard" name="valuablesWard" [(ngModel)]="formUi.valuablesWard">
-          <label class="form-check-label" for="valuablesWard">Lock away in hospital ward</label>
-        </div>
-      </div>
-      
-      <div class="subsection_container-header form-group">
-        <h5>The patient has been informed of the handling of valuables</h5>
-      </div>
-      <div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="informYes" name="informYes" [(ngModel)]="formUi.informYes">
-          <label class="form-check-label" for="informYes">yes</label>
-        </div>
-        <div class="form-row form-check-inline">
-          <input class="form-check-input" type="checkbox" id="informNo" name="informNo" [(ngModel)]="formUi.informNo">
-          <label class="form-check-label" for="informNo">no</label>
-        </div>
-      </div>      
-
-
-      <div class="subsection_container-header form-row">
-        <div class="form-group col-md-2">
-          <h5>Summary</h5>
-        </div>
-        <div class="form-group col-md-2">
-          <button (click)="getSuggestions()" type="button" class="btn btn-secondary">Suggest</button>
-        </div>
-        <div class="form-group col-md-8">
-          <button (click)="clearSuggestions()" type="button" class="btn btn-secondary">Done</button>
-        </div>
-      </div>
-
-      <div id="summary_suggestions_container" [style.display]="isDisplayed ? 'block' : 'none'">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="first_suggestion" id="first_suggestion">
-          <label class="form-check-label" for="first_suggestion" [innerHTML]="first_suggestion">
-            Summary 1
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="second_suggestion" id="second_suggestion">
-          <label class="form-check-label" for="second_suggestion" [innerHTML]="second_suggestion">
-            Summary 2
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="third_suggestion" id="third_suggestion">
-          <label class="form-check-label" for="third_suggestion" [innerHTML]="third_suggestion">
-            Summary 3
-          </label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <textarea class="form-control" id="summary_text" rows="5"></textarea>
-      </div>
-
-      <button (click)="saveForm()" class="btn btn-success">Submit</button>
-    </div>
-
-    <div *ngIf="submitted">
-      <h4>Form was submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newForm()">Add</button>
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="patientFname" placeholder="Surname"
+        [(ngModel)]="formUi.patientFname">
     </div>
   </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="weight" placeholder="Weight" [(ngModel)]="formUi.weight">
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="height" placeholder="Height" [(ngModel)]="formUi.height">
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Regular medication: </h5>
+  </div>
+  <div class="form-row">
+    <div class="form-group form-check-inline">
+      <input type="text" class="form-control" id="medDrug1" placeholder="Drug name" [(ngModel)]="formUi.medDrug1">
+    </div>
+    <div class="form-group form-check-inline">
+      <input type="text" class="form-control" id="medDosage1" placeholder="Dosage" [(ngModel)]="formUi.medDosage1">
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medMorning1" [(ngModel)]="formUi.medMorning1">
+      <label class="form-check-label" for="medMorning1">in the morning</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medNoon1" [(ngModel)]="formUi.medNoon1">
+      <label class="form-check-label" for="medNoon1">at noon</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medEvening1" [(ngModel)]="formUi.medEvening1">
+      <label class="form-check-label" for="medEvening1">in the evening</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medNight1" [(ngModel)]="formUi.medNight1">
+      <label class="form-check-label" for="medNight1">at night</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group form-check-inline">
+      <input type="text" class="form-control" id="medDrug2" placeholder="Drug name" [(ngModel)]="formUi.medDrug2">
+    </div>
+    <div class="form-group form-check-inline">
+      <input type="text" class="form-control" id="medDosage2" placeholder="Dosage" [(ngModel)]="formUi.medDosage2">
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medMorning2" [(ngModel)]="formUi.medMorning2">
+      <label class="form-check-label" for="medMorning2">in the morning</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medNoon2" [(ngModel)]="formUi.medNoon2">
+      <label class="form-check-label" for="medNoon2">at noon</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medEvening2" [(ngModel)]="formUi.medEvening2">
+      <label class="form-check-label" for="medEvening2">in the evening</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medNight2" [(ngModel)]="formUi.medNight2">
+      <label class="form-check-label" for="medNight2">at night</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group form-check-inline">
+      <input type="text" class="form-control" id="medDrug3" placeholder="Drug name" [(ngModel)]="formUi.medDrug3">
+    </div>
+    <div class="form-group form-check-inline">
+      <input type="text" class="form-control" id="medDosage3" placeholder="Dosage" [(ngModel)]="formUi.medDosage3">
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medMorning3" [(ngModel)]="formUi.medMorning3">
+      <label class="form-check-label" for="medMorning3">in the morning</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medNoon3" [(ngModel)]="formUi.medNoon3">
+      <label class="form-check-label" for="medNoon3">at noon</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medEvening3" [(ngModel)]="formUi.medEvening3">
+      <label class="form-check-label" for="medEvening3">in the evening</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="medNight3" [(ngModel)]="formUi.medNight3">
+      <label class="form-check-label" for="medNight3">at night</label>
+    </div>
+  </div>
+
+  <div class="section_container-header form-group">
+    <h3>1. Care situation</h3>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Living situation</h5>
+  </div>
+  <div class="question_container form-group">
+    <p class="question-parag">Living alone</p>
+  </div>
+  <div class="form-row">
+    <div class="col-md-3">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="liveAloneNo" [(ngModel)]="formUi.liveAloneNo">
+        <label class="form-check-label" for="liveAloneNo">No</label>
+      </div>
+      <div class="form-check-inline">
+        <input class="form-check-input" type="checkbox" id="liveAloneYes" [(ngModel)]="formUi.liveAloneYes">
+        <label class="form-check-label" for="liveAloneYes">Yes</label>
+      </div>
+      <div class="form-group form-check-inline">
+        <input class="form-check-input" type="checkbox" id="liveAloneLift" [(ngModel)]="formUi.liveAloneLift">
+        <label class="form-check-label" for="liveAloneLift">Lift/Elevator</label>
+      </div>
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="liveAloneFloor" placeholder="Floor level"
+        [(ngModel)]="formUi.liveAloneFloor">
+    </div>
+  </div>
+
+  <div class="question_container form-group">
+    <p class="question-parag">Unregulated obligations/dependencies resulting from your personal environment</p>
+  </div>
+  <div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="obliationsNo" [(ngModel)]="formUi.obliationsNo">
+      <label class="form-check-label" for="obliationsNo">No</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="obliationsYes" [(ngModel)]="formUi.obliationsYes">
+      <label class="form-check-label" for="obliationsYes">Yes</label>
+    </div>
+  </div>
+
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Relatives/Emergency contacts</h5>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeSurname1" placeholder="Surname"
+        [(ngModel)]="formUi.relativeSurname1">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeFname1" placeholder="First Name"
+        [(ngModel)]="formUi.relativeFname1">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativePhone1" placeholder="Phone"
+        [(ngModel)]="formUi.relativePhone1">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeRel1" placeholder="Relationship"
+        [(ngModel)]="formUi.relativeRel1">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeSurname2" placeholder="Surname"
+        [(ngModel)]="formUi.relativeSurname2" name="relativeSurname2">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeFname2" placeholder="First Name"
+        [(ngModel)]="formUi.relativeFname2" name="relativeFname2">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativePhone2" placeholder="Phone"
+        [(ngModel)]="formUi.relativePhone2" name="relativePhone2">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeRel2" placeholder="Relationship"
+        [(ngModel)]="formUi.relativeRel2" name="relativeRel2">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeSurname3" placeholder="Surname"
+        [(ngModel)]="formUi.relativeSurname3" name="relativeSurname3">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeFname3" placeholder="First Name"
+        [(ngModel)]="formUi.relativeFname3" name="relativeFname3">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativePhone3" placeholder="Phone"
+        [(ngModel)]="formUi.relativePhone3" name="relativePhone3">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="relativeRel3" placeholder="Relationship"
+        [(ngModel)]="formUi.relativeSurname3" name="relativeSurname3">
+    </div>
+  </div>
+
+
+  <div class="form-row subsection_container form-group">
+    <h5>Degree of care</h5>
+  </div>
+  <div class="form-row">
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="careNo" [(ngModel)]="formUi.careNo" name="careNo">
+      <label class="form-check-label" for="careNo">No</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="careYes" [(ngModel)]="formUi.careYes" name="careYes">
+      <label class="form-check-label" for="careYes">Yes = degree of care</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="careDegree1" [(ngModel)]="formUi.careDegree1"
+        name="careDegree1">
+      <label class="form-check-label" for="careDegree1">1</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="careDegree2" [(ngModel)]="formUi.careDegree2"
+        name="careDegree2">
+      <label class="form-check-label" for="careDegree2">2</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="careDegree3" [(ngModel)]="formUi.careDegree3"
+        name="careDegree3">
+      <label class="form-check-label" for="careDegree3">3</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="careDegree4" [(ngModel)]="formUi.careDegree4"
+        name="careDegree4">
+      <label class="form-check-label" for="careDegree4">4</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="careDegree5" [(ngModel)]="formUi.careDegree5"
+        name="careDegree5">
+      <label class="form-check-label" for="careDegree5">5</label>
+    </div>
+  </div>
+
+  <div class="question_container form-group">
+    <p class="question-parag">Have you been hospitalized for more than 3 days in the past 12 months</p>
+  </div>
+  <div class="form-group">
+    <div class=" form-check-inline">
+      <input class="form-check-input" type="checkbox" id="hospitalizedNo" [(ngModel)]="formUi.hospitalizedNo"
+        name="hospitalizedNo">
+      <label class="form-check-label" for="hospitalizedNo">No</label>
+    </div>
+    <div class="form-check-inline">
+      <input class="form-check-input" type="checkbox" id="hospitalizedYes" [(ngModel)]="formUi.hospitalizedYes"
+        name="hospitalizedYes">
+      <label class="form-check-label" for="hospitalizedYes">Yes</label>
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Hospitalization abroad</h5>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="hospAbroadPlace" placeholder="Place"
+        [(ngModel)]="formUi.hospAbroadPlace" name="hospAbroadPlace">
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="hospAbroadTime" placeholder="Time"
+        [(ngModel)]="formUi.hospAbroadTime" name="hospAbroadTime">
+    </div>
+  </div>
+
+  <div class="section_container-header form-group">
+    <h3>2. Current medical state</h3>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Communication</h5>
+  </div>
+  <div>
+    <div class="form-row form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="commNoImpairment" [(ngModel)]="formUi.commNoImpairment"
+        name="commNoImpairment">
+      <label class="form-check-label" for="commNoImpairment">no impairment</label>
+    </div>
+    <div class="form-row">
+      <div class="form-group form-check-inline">
+        <input class="form-check-input" type="checkbox" id="commForeignLang" [(ngModel)]="formUi.commForeignLang"
+          name="commForeignLang">
+        <label class="form-check-label" for="commForeignLang">measures for communication in a foreign
+          language</label>
+      </div>
+      <div class="form-group form-check-inline">
+        <input class="form-check-input" type="checkbox" id="commForeignLangYes"
+          [(ngModel)]="formUi.commForeignLangYes" name="commForeignLangYes">
+        <label class="form-check-label" for="commForeignLangYes">Yes</label>
+      </div>
+      <div class="form-group form-check-inline">
+        <input class="form-check-input" type="checkbox" id="commForeignLangNo"
+          [(ngModel)]="formUi.commForeignLangNo" name="commForeignLangNo">
+        <label class="form-check-label" for="commForeignLangNo">No</label>
+      </div>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="commSignLang" [(ngModel)]="formUi.commSignLang"
+        name="commSignLang">
+      <label class="form-check-label" for="commSignLang">sign Language</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="commDisorder" [(ngModel)]="formUi.commDisorder"
+        name="commDisorder">
+      <label class="form-check-label" for="commDisorder">speech disorder</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="commTrach" [(ngModel)]="formUi.commTrach"
+        name="commTrach">
+      <label class="form-check-label" for="commTrach">tracheostoma</label>
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Vision</h5>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <p class="question-parag">visual impairment</p>
+    </div>
+    <div class="col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="visionLeft" [(ngModel)]="formUi.visionLeft"
+          name="visionLeft">
+        <label class="form-check-label" for="visionLeft">left eye</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="visionRight" [(ngModel)]="formUi.visionRight"
+          name="visionRight">
+        <label class="form-check-label" for="visionRight">right eye</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <p class="question-parag">blindness</p>
+    </div>
+    <div class="col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="blindnessLeft" [(ngModel)]="formUi.blindnessLeft"
+          name="blindnessLeft">
+        <label class="form-check-label" for="blindnessLeft">left eye</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="blindnessRight" [(ngModel)]="formUi.blindnessRight"
+          name="blindnessRight">
+        <label class="form-check-label" for="blindnessRight">right eye</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <p class="question-parag">visual aids in place?</p>
+    </div>
+    <div class="col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="visualAidLeft" [(ngModel)]="formUi.visualAidLeft"
+          name="visualAidLeft">
+        <label class="form-check-label" for="visualAidLeft">left eye</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="visualAidRight" [(ngModel)]="formUi.visualAidRight"
+          name="visualAidRight">
+        <label class="form-check-label" for="visualAidRight">right eye</label>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="subsection_container-header form-group">
+    <h5>Hearing</h5>
+  </div>
+  <div class="form-group form-check">
+    <input class="form-check-input" type="checkbox" id="hearingNoImp" [(ngModel)]="formUi.hearingNoImp"
+      name="hearingNoImp">
+    <label class="form-check-label" for="hearingNoImp">no impairment</label>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <p class="question-parag">hearing aid</p>
+    </div>
+    <div class="col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="hearingAidRight" [(ngModel)]="formUi.hearingAidRight"
+          name="hearingAidRight">
+        <label class="form-check-label" for="hearingAidRight">right ear</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="hearingAidLeft" [(ngModel)]="formUi.hearingAidLeft"
+          name="hearingAidLeft">
+        <label class="form-check-label" for="hearingAidLeft">left ear</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <p class="question-parag">hard of hearing</p>
+    </div>
+    <div class="col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="hearingHardRight" [(ngModel)]="formUi.hearingHardRight"
+          name="hearingHardRight">
+        <label class="form-check-label" for="hearingHardRight">right ear</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="hearingHardLeft" [(ngModel)]="formUi.hearingHardLeft"
+          name="hearingHardLeft">
+        <label class="form-check-label" for="hearingHardLeft">left ear</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <p class="question-parag">deafness</p>
+    </div>
+    <div class="form-group col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="deafnessRight" [(ngModel)]="formUi.deafnessRight"
+          name="deafnessRight">
+        <label class="form-check-label" for="deafnessRight">right ear</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="deafnessLeft" [(ngModel)]="formUi.deafnessLeft"
+          name="deafnessLeft">
+        <label class="form-check-label" for="deafnessLeft">left ear</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Disorientation</h5>
+  </div>
+  <div class="form-check form-group">
+    <input class="form-check-input" type="checkbox" id="disorNoImp" [(ngModel)]="formUi.disorNoImp"
+      name="disorNoImp">
+    <label class="form-check-label" for="disorNoImp">no impairment</label>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <p class="question-parag">disorientation of</p>
+    </div>
+    <div class="form-group col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="disorTime" [(ngModel)]="formUi.disorTime"
+          name="disorTime">
+        <label class="form-check-label" for="disorTime">time </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="disorPlace" [(ngModel)]="formUi.disorPlace"
+          name="disorPlace">
+        <label class="form-check-label" for="disorPlace">place </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="disorPerson" [(ngModel)]="formUi.disorPerson"
+          name="disorPerson">
+        <label class="form-check-label" for="disorPerson">person </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Understanding (thinking)</h5>
+  </div>
+  <div>
+    <div class="form-check form-row form-group">
+      <input class="form-check-input" type="checkbox" id="understNoImp" name="understNoImp"
+        [(ngModel)]="formUi.understNoImp">
+      <label class="form-check-label" for="understNoImp">no impairment</label>
+    </div>
+    <div class="form-row form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="understConfusion" name="understConfusion"
+          [(ngModel)]="formUi.understConfusion">
+        <label class="form-check-label" for="understConfusion">confusion</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="understNerv" name="understNerv"
+          [(ngModel)]="formUi.understNerv">
+        <label class="form-check-label" for="understNerv">nervousness / restlessness</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="understAltered" name="understAltered"
+          [(ngModel)]="formUi.understAltered">
+        <label class="form-check-label" for="understAltered">altered consciousness</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Disability</h5>
+  </div>
+  <div class="form-row form-group">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="disabilityNo" name="disabilityNo"
+        [(ngModel)]="formUi.disabilityNo">
+      <label class="form-check-label" for="disabilityNo">No</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="disabilityYes" name="disabilityYes"
+        [(ngModel)]="formUi.disabilityYes">
+      <label class="form-check-label" for="disabilityYes">Yes</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4 padding-left">
+      <input class="form-check-input" type="checkbox" id="disabilityHemiYes" name="disabilityHemiYes"
+        [(ngModel)]="formUi.disabilityHemiYes">
+      <label class="form-check-label" for="disabilityHemiYes">Hemiplegia</label>
+    </div>
+    <div class="form-group col-md-4 padding-left">
+      <input class="form-check-input" type="checkbox" id="disabilityAmputYes" name="disabilityAmputYes"
+        [(ngModel)]="formUi.disabilityAmputYes">
+      <label class="form-check-label" for="disabilityAmputYes">Amputation</label>
+    </div>
+    <div class="form-group col-md-4 padding-left">
+      <input class="form-check-input" type="checkbox" id="disabilityParaYes" name="disabilityParaYes"
+        [(ngModel)]="formUi.disabilityParaYes">
+      <label class="form-check-label" for="disabilityParaYes">Paraplegia</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" id="disabilityHemi" name="disabilityHemi" placeholder="Hemiplegia"
+        [(ngModel)]="formUi.disabilityHemi">
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" id="disabilityAmput" name="disabilityAmput"
+        placeholder="Amputation" [(ngModel)]="formUi.disabilityAmput">
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" id="disabilityPara" name="disabilityPara" placeholder="Paraplegia"
+        [(ngModel)]="formUi.disabilityPara">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <p class="question-parag">Prosthetic aids in place?</p>
+    </div>
+    <div class="form-group col-md-6">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="disabilityProYes" name="disabilityProYes"
+          [(ngModel)]="formUi.disabilityProYes">
+        <label class="form-check-label" for="disabilityProYes">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="disabilityProNo" name="disabilityProNo"
+          [(ngModel)]="formUi.disabilityProNo">
+        <label class="form-check-label" for="disabilityProNo">No</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Sleep</h5>
+  </div>
+  <div>
+    <div class="form-check form-group">
+      <input class="form-check-input" type="checkbox" id="sleepNoImp" name="sleepNoImp"
+        [(ngModel)]="formUi.sleepNoImp">
+      <label class="form-check-label" for="sleepNoImp">no impairment</label>
+    </div>
+    <div class="form-check form-group">
+      <input class="form-check-input" type="checkbox" id="sleepDiff" name="sleepDiff"
+        [(ngModel)]="formUi.sleepDiff">
+      <label class="form-check-label" for="sleepDiff">difficulty falling asleep or staying asleep (more than 30
+        min.) </label>
+    </div>
+    <div class="form-check form-group">
+      <input class="form-check-input" type="checkbox" id="sleepBreath" name="sleepBreath"
+        [(ngModel)]="formUi.sleepBreath">
+      <label class="form-check-label" for="sleepBreath">breathing interruptions / dyspnoea (anamnesis
+        determined)</label>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Diet</h5>
+  </div>
+  <div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="dietWhole" name="dietWhole"
+        [(ngModel)]="formUi.dietWhole">
+      <label class="form-check-label" for="dietWhole">whole food</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="dietNoSugar" name="dietNoSugar"
+        [(ngModel)]="formUi.dietNoSugar">
+      <label class="form-check-label" for="dietNoSugar">whole food without sugars</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="dietVeg" name="dietVeg" [(ngModel)]="formUi.dietVeg">
+      <label class="form-check-label" for="dietVeg">vegetarian</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="dietDiabetic" name="dietDiabetic"
+        [(ngModel)]="formUi.dietDiabetic">
+      <label class="form-check-label" for="dietDiabetic">diabetic diet</label>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Ingestion</h5>
+  </div>
+  <div>
+    <div class="form-check form-group">
+      <input class="form-check-input" type="checkbox" id="ingestOral" name="ingestOral"
+        [(ngModel)]="formUi.ingestOral">
+      <label class="form-check-label" for="ingestOral">oral</label>
+    </div>
+    <div class="form-check form-group">
+      <input class="form-check-input" type="checkbox" id="ingestFeed" name="ingestFeed"
+        [(ngModel)]="formUi.ingestFeed">
+      <label class="form-check-label" for="ingestFeed">feeding tube</label>
+    </div>
+    <div class="form-check form-group">
+      <input class="form-check-input" type="checkbox" id="ingestParent" name="ingestParent"
+        [(ngModel)]="formUi.ingestParent">
+      <label class="form-check-label" for="ingestParent">parental nutrition</label>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Excretion</h5>
+  </div>
+  <div class="subsection_container-header form-group">
+    <h5>Urine</h5>
+  </div>
+  <div>
+    <div class="form-check form-group">
+      <input class="form-check-input" type="checkbox" id="excNoImp" name="excNoImp" [(ngModel)]="formUi.excNoImp">
+      <label class="form-check-label" for="excNoImp">no impairment</label>
+    </div>
+    <div class="form-check-inline form-group">
+      <input class="form-check-input" type="checkbox" id="excIncont" name="excIncont"
+        [(ngModel)]="formUi.excIncont">
+      <label class="form-check-label" for="excIncont">incontinence</label>
+    </div>
+    <div class="form-check-inline">
+      <input class="form-check-input" type="checkbox" id="excIncrease" name="excIncrease"
+        [(ngModel)]="formUi.excIncrease">
+      <label class="form-check-label" for="excIncrease">increased urination at night</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="excBladder" name="excBladder"
+        [(ngModel)]="formUi.excBladder">
+      <label class="form-check-label" for="excBladder">bladder catheter</label>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Bowel Movement</h5>
+  </div>
+  <div>
+    <div class="form-check  form-group">
+      <input class="form-check-input" type="checkbox" id="bowelNoImp" name="bowelNoImp"
+        [(ngModel)]="formUi.bowelNoImp">
+      <label class="form-check-label" for="bowelNoImp">no impairment</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="bowelIncon" name="bowelIncon"
+        [(ngModel)]="formUi.bowelIncon">
+      <label class="form-check-label" for="bowelIncon">incontinence</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="bowelDiarr" name="bowelDiarr"
+        [(ngModel)]="formUi.bowelDiarr">
+      <label class="form-check-label" for="bowelDiarr">diarrhoea</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="bowelCons" name="bowelCons"
+        [(ngModel)]="formUi.bowelCons">
+      <label class="form-check-label" for="bowelCons">constipation</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="bowelPraetor" name="bowelPraetor"
+        [(ngModel)]="formUi.bowelPraetor">
+      <label class="form-check-label" for="bowelPraetor">anus praetor</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="bowelLax" name="bowelLax" [(ngModel)]="formUi.bowelLax">
+      <label class="form-check-label" for="bowelLax">laxative intake</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="bowelAids" name="bowelAids"
+        [(ngModel)]="formUi.bowelAids">
+      <label class="form-check-label" for="bowelAids">uses aids</label>
+    </div>
+  </div>
+
+  <div class="subsection_container-header form-group">
+    <h5>Pain</h5>
+  </div>
+  <div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="painNo" name="painNo" [(ngModel)]="formUi.painNo">
+      <label class="form-check-label" for="painNo">No</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="painYes" name="painYes" [(ngModel)]="formUi.painYes">
+      <label class="form-check-label" for="painYes">Yes</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-3">
+      <div class="question_container form-group">
+        <p class="question-parag">Body parts</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="question_container form-group">
+        <p class="question-parag">1. right side 2. left side 3. both sides 4. centre</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="question_container form-group">
+        <p class="question-parag">1. Acute 2. Chronic 3. tumor-related</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="question_container form-group">
+        <p class="question-parag">Intensity at rest: 1 hardly any pain; 10 strongest pain</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painPart1" name="painPart1" placeholder="Body part"
+        [(ngModel)]="formUi.painPart1">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painSide1" name="painSide1" placeholder="Side"
+        [(ngModel)]="formUi.painSide1">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painState1" name="painState1" placeholder="State"
+        [(ngModel)]="formUi.painState1">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painRest1" name="painRest1" placeholder="Intensity"
+        [(ngModel)]="formUi.painRest1">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painPart2" name="painPart2" placeholder="Body part"
+        [(ngModel)]="formUi.painPart2">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painSide2" name="painSide2" placeholder="Side"
+        [(ngModel)]="formUi.painSide2">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painState2" name="painState2" placeholder="State"
+        [(ngModel)]="formUi.painState2">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painRest2" name="painRest2" placeholder="Intensity"
+        [(ngModel)]="formUi.painRest2">
+    </div>
+  </div>
+  <div class="form-row form-group">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painPart3" name="painPart3" placeholder="Body part"
+        [(ngModel)]="formUi.painPart3">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painSide3" name="painSide3" placeholder="Side"
+        [(ngModel)]="formUi.painSide3">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painState3" name="painState3" placeholder="State"
+        [(ngModel)]="formUi.painState3">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painRest3" name="painRest3" placeholder="Intensity"
+        [(ngModel)]="formUi.painRest3">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-3">
+      <div class="question_container form-group">
+        <p class="question-parag">Intensity during exercise: 1 hardly any pain; 10 strongest pain</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="question_container form-group">
+        <p class="question-parag">1. Continuous 2. Frequent 3. Infrequent</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="question_container form-group">
+        <p class="question-parag">Type of pain 1. Pulling 2. Colic-like 3. Cramp-like 4. Stinging 5. Dull</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painExc1" name="painExc1" placeholder="Intensity"
+        [(ngModel)]="formUi.painExc1">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painFreq1" name="painFreq1" placeholder="Frequency"
+        [(ngModel)]="formUi.painFreq1">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painType1" name="painType1" placeholder="Type"
+        [(ngModel)]="formUi.painType1">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painExc2" name="painExc2" placeholder="Intensity"
+        [(ngModel)]="formUi.painExc2">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painFreq2" name="painFreq2" placeholder="Frequency"
+        [(ngModel)]="formUi.painFreq2">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painType2" name="painType2" placeholder="Type"
+        [(ngModel)]="formUi.painType2">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painExc3" name="painExc3" placeholder="Intensity"
+        [(ngModel)]="formUi.painExc3">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painFreq3" name="painFreq3" placeholder="Frequency"
+        [(ngModel)]="formUi.painFreq3">
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" id="painType3" name="painType3" placeholder="Type"
+        [(ngModel)]="formUi.painType3">
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Substance use</h5>
+  </div>
+  <div>
+    <div class="form-row form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="substNo" name="substNo" [(ngModel)]="formUi.substNo">
+        <label class="form-check-label" for="substNo">No</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="substYes" name="substYes" [(ngModel)]="formUi.substYes">
+        <label class="form-check-label" for="substYes">Yes</label>
+      </div>
+    </div>
+
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="substSmoker" name="substSmoker"
+        [(ngModel)]="formUi.substSmoker">
+      <label class="form-check-label" for="substSmoker">smoker</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input type="text" class="form-control" id="substSmokerNr" name="substSmokerNr" placeholder="Nr of cigarettes"
+        [(ngModel)]="formUi.substSmokerNr">
+    </div>
+    <div class="form-group form-check">
+      <input class="form-check-input" type="checkbox" id="substFormer" name="substFormer"
+        [(ngModel)]="formUi.substFormer">
+      <label class="form-check-label" for="substFormer">former smoker</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="substAlcohol" name="substAlcohol"
+        [(ngModel)]="formUi.substAlcohol">
+      <label class="form-check-label" for="substAlcohol">alcohol consumption</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="substAlcoholReg" name="substAlcoholReg"
+        [(ngModel)]="formUi.substAlcoholReg">
+      <label class="form-check-label" for="substAlcoholReg">regular</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="substAlcoholOcc" name="substAlcoholOcc"
+        [(ngModel)]="formUi.substAlcoholOcc">
+      <label class="form-check-label" for="substAlcoholOcc">occasional</label>
+    </div>
+    <div class="form-group form-check">
+      <input class="form-check-input" type="checkbox" id="substNarc" name="substNarc"
+        [(ngModel)]="formUi.substNarc">
+      <label class="form-check-label" for="substNarc">narcotics</label>
+    </div>
+  </div>
+
+  <div class="form-row subsection_container form-group">
+    <h5>Skin condition / pressure ulcers </h5>
+  </div>
+  <div class="form-row">
+    <div class="form-check form-group form-check-inline">
+      <span>
+        <label class="form-check-label" for="hospitalizedNo">Pressure form-check</label>
+      </span>
+      <span class="padding-left">
+        <input class="form-check-input" type="checkbox" id="ulcersNo" name="ulcersNo" [(ngModel)]="formUi.ulcersNo">
+        <label class="form-check-label" for="ulcersNo">No</label>
+      </span>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="ulcersYes" name="ulcersYes"
+        [(ngModel)]="formUi.ulcersYes">
+      <label class="form-check-label" for="ulcersYes">Yes</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <label class="form-check-label">Is there another wound</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="ulcersWoundNo" name="ulcersWoundNo"
+        [(ngModel)]="formUi.ulcersWoundNo">
+      <label class="form-check-label" for="ulcersWoundNo">No</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="ulcersWoundYes" name="ulcersWoundYes"
+        [(ngModel)]="formUi.ulcersWoundYes">
+      <label class="form-check-label" for="ulcersWoundYes">Yes</label>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-check form-group form-check-inline">
+      <label class="form-check-label">General skin condition</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinNoFind" name="skinNoFind"
+        [(ngModel)]="formUi.skinNoFind">
+      <label class="form-check-label" for="skinNoFind">no findings</label>
+    </div>
+  </div>
+
+  <div>
+    <div class="form-row form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinWithFind" name="skinWithFind"
+        [(ngModel)]="formUi.skinWithFind">
+      <label class="form-check-label" for="skinWithFind">with findings </label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinDry" name="skinDry" [(ngModel)]="formUi.skinDry">
+      <label class="form-check-label" for="skinDry">dry</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinMoist" name="skinMoist"
+        [(ngModel)]="formUi.skinMoist">
+      <label class="form-check-label" for="skinMoist">moist</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinDerm" name="skinDerm" [(ngModel)]="formUi.skinDerm">
+      <label class="form-check-label" for="skinDerm">dermatological disease</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinParch" name="skinParch"
+        [(ngModel)]="formUi.skinParch">
+      <label class="form-check-label" for="skinParch">parchment skin</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinHema" name="skinHema" [(ngModel)]="formUi.skinHema">
+      <label class="form-check-label" for="skinHema">hematoma</label>
+    </div>
+  </div>
+
+
+  <div class="form-row subsection_container-header form-group">
+    <h3>3. Self-care ability</h3>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <p class="question-parag">personal care / ability to dress oneself</p>
+    </div>
+    <div class="col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="careDressSelf" name="careDressSelf"
+          [(ngModel)]="formUi.careDressSelf">
+        <label class="form-check-label" for="careDressSelf">Self-employed</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="careDressSupp" name="careDressSupp"
+          [(ngModel)]="formUi.careDressSupp">
+        <label class="form-check-label" for="careDressSupp">Support required</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4">
+      <p class="question-parag">food, drink</p>
+    </div>
+    <div class="col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="careFoodSelf" name="careFoodSelf"
+          [(ngModel)]="formUi.careFoodSelf">
+        <label class="form-check-label" for="careFoodSelf">Self-employed</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="careFoodSupp" name="careFoodSupp"
+          [(ngModel)]="formUi.careFoodSupp">
+        <label class="form-check-label" for="careFoodSupp">Support required</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4">
+      <p class="question-parag">excretion</p>
+    </div>
+    <div class="col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="careExcSelf" name="careExcSelf"
+          [(ngModel)]="formUi.careExcSelf">
+        <label class="form-check-label" for="careExcSelf">Self-employed</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="careExcSup" name="careExcSup"
+          [(ngModel)]="formUi.careExcSup">
+        <label class="form-check-label" for="careExcSup">Support required</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <p class="question-parag">walking / transfer</p>
+    </div>
+    <div class="form-group col-md-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="careWalkSelf" name="careWalkSelf"
+          [(ngModel)]="formUi.careWalkSelf">
+        <label class="form-check-label" for="careWalkSelf">Self-employed</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="careWalkSupp" name="careWalkSupp"
+          [(ngModel)]="formUi.careWalkSupp">
+        <label class="form-check-label" for="careWalkSupp">Support required</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Objects close to body</h5>
+  </div>
+  <div>
+    <div class="form-row form-check">
+      <input class="form-check-input" type="checkbox" id="objNo" name="objNo" [(ngModel)]="formUi.objNo">
+      <label class="form-check-label" for="objNo">No</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="objYes" name="objYes" [(ngModel)]="formUi.objYes">
+      <label class="form-check-label" for="objYes">Yes</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="objCompress" name="objCompress"
+        [(ngModel)]="formUi.objCompress">
+      <label class="form-check-label" for="objCompress">compression stockings</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="objDevice" name="objDevice"
+        [(ngModel)]="formUi.objDevice">
+      <label class="form-check-label" for="objDevice">O2 device</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="objOrtho" name="objOrtho" [(ngModel)]="formUi.objOrtho">
+      <label class="form-check-label" for="objOrtho">orthoses</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="objPros" name="objPros" [(ngModel)]="formUi.objPros">
+      <label class="form-check-label" for="objPros">prostheses</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input type="text" class="form-control" id="objOthers" name="objOthers" placeholder="Others"
+        [(ngModel)]="formUi.objOthers">
+    </div>
+  </div>
+
+  <div class="form-row form-group">
+    <div class="form-check form-check-inline">
+      <span>
+        <label class="form-check-label">Skin condition of the item</label>
+      </span>
+      <span class="padding-left">
+        <input class="form-check-input" type="checkbox" id="skinIntact" name="skinIntact"
+        [(ngModel)]="formUi.skinIntact">
+        <label class="form-check-label" for="skinIntact">intact</label>
+      </span>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinNotInt" name="skinNotInt"
+        [(ngModel)]="formUi.skinNotInt">
+      <label class="form-check-label" for="skinNotInt">not intact</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="skinNotAsc" name="skinNotAsc"
+        [(ngModel)]="formUi.skinNotAsc">
+      <label class="form-check-label" for="skinNotAsc">not ascertainable</label>
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Inlets and outlets</h5>
+  </div>
+  <div>
+    <div class="form-row form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inletsNo" name="inletsNo" [(ngModel)]="formUi.inletsNo">
+        <label class="form-check-label" for="inletsNo">No</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inletsYes" name="inletsYes"
+          [(ngModel)]="formUi.inletsYes">
+        <label class="form-check-label" for="inletsYes">Yes</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4">
+        <p class="question-parag">Port</p>
+      </div>
+      <div class="col-md-8">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inletsPortYes" name="inletsPortYes"
+            [(ngModel)]="formUi.inletsPortYes">
+          <label class="form-check-label" for="inletsPortYes">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inletsPortNo" name="inletsPortNo"
+            [(ngModel)]="formUi.inletsPortNo">
+          <label class="form-check-label" for="inletsPortNo">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4">
+        <p class="question-parag">Probes</p>
+      </div>
+      <div class="col-md-8">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inletsProbesYes" name="inletsProbesYes"
+            [(ngModel)]="formUi.inletsProbesYes">
+          <label class="form-check-label" for="inletsProbesYes">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inletsProbesNo" name="inletsProbesNo"
+            [(ngModel)]="formUi.inletsProbesNo">
+          <label class="form-check-label" for="inletsProbesNo">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4">
+        <p class="question-parag">Urinary diversion</p>
+      </div>
+      <div class="col-md-8">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inletsUrineYes" name="inletsUrineYes"
+            [(ngModel)]="formUi.inletsUrineYes">
+          <label class="form-check-label" for="inletsUrineYes">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inletsUrineNo" name="inletsUrineNo"
+            [(ngModel)]="formUi.inletsUrineNo">
+          <label class="form-check-label" for="inletsUrineNo">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <p class="question-parag">Stomata</p>
+      </div>
+      <div class="form-group col-md-8">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="stomataYes" name="stomataYes"
+            [(ngModel)]="formUi.stomataYes">
+          <label class="form-check-label" for="stomataYes">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="stomataNo" name="stomataNo"
+            [(ngModel)]="formUi.stomataNo">
+          <label class="form-check-label" for="stomataNo">No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Risk of falling</h5>
+  </div>
+  <div class="form-row">
+    <div class="form-check form-group form-check-inline">
+      <span>
+        <label class="form-check-label">Have you fallen in the last 12 months</label>
+      </span>
+      <span class="padding-left">
+        <input class="form-check-input" type="checkbox" id="fallNo" name="fallNo" [(ngModel)]="formUi.fallNo">
+        <label class="form-check-label" for="fallNo">No</label>
+      </span>
+    </div>
+    <div class="form-check form-group form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="fallYes" name="fallYes" [(ngModel)]="formUi.fallYes">
+      <label class="form-check-label" for="fallYes">Yes, number:</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="fall1x" name="fall1x" [(ngModel)]="formUi.fall1x">
+      <label class="form-check-label" for="fall1x">1x</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="fall2x" name="fall2x" [(ngModel)]="formUi.fall2x">
+      <label class="form-check-label" for="fall2x">2x</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="fall3x" name="fall3x" [(ngModel)]="formUi.fall3x">
+      <label class="form-check-label" for="fall3x">3x</label>
+    </div>
+    <div class="form-check form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="fallMore" name="fallMore" [(ngModel)]="formUi.fallMore">
+      <label class="form-check-label" for="fallMore">More common</label>
+    </div>
+  </div>
+  <div class="form-row form-group">
+    <div class="form-check form-check-inline">
+      <span>
+        <label class="form-check-label">psychotropic drugs / sedatives</label>
+      </span>
+      <span class="padding-left">
+        <input class="form-check-input" type="checkbox" id="drugsNo" name="drugsNo" [(ngModel)]="formUi.drugsNo">
+        <label class="form-check-label" for="drugsNo">No</label>
+      </span>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="drugsYes" name="drugsYes" [(ngModel)]="formUi.drugsYes">
+      <label class="form-check-label" for="drugsYes">Yes</label>
+    </div>
+  </div>
+  <div class="form-row form-group">
+    <div class="form-check form-check-inline">
+      <span>
+        <label class="form-check-label">Diagnoses:</label>
+      </span>
+      <span class="padding-left">
+        <input class="form-check-input" type="checkbox" id="diagnoseSync" name="diagnoseSync"
+        [(ngModel)]="formUi.diagnoseSync">
+        <label class="form-check-label" for="diagnoseSync">syncope (fainting)</label>
+      </span>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="diagnoseEpil" name="diagnoseEpil"
+        [(ngModel)]="formUi.diagnoseEpil">
+      <label class="form-check-label" for="diagnoseEpil">epilepsy TIA (mini stroke)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="diagnoseHunt" name="diagnoseHunt"
+        [(ngModel)]="formUi.diagnoseHunt">
+      <label class="form-check-label" for="diagnoseHunt">Huntington’s disease (CNS related)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="diagnoseDiab" name="diagnoseDiab"
+        [(ngModel)]="formUi.diagnoseDiab">
+      <label class="form-check-label" for="diagnoseDiab">Type 2 diabetes</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="diagnoseNo" name="diagnoseNo"
+        [(ngModel)]="formUi.diagnoseNo">
+      <label class="form-check-label" for="diagnoseNo">No</label>
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h3>4. Allergies</h3>
+  </div>
+  <div class="form-row form-group">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="allergyNo" name="allergyNo"
+        [(ngModel)]="formUi.allergyNo">
+      <label class="form-check-label" for="allergyNo">No known allergies</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="allergyYes" name="allergyYes"
+        [(ngModel)]="formUi.allergyYes">
+      <label class="form-check-label" for="allergyYes">Known</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" id="allergyKnown1" name="allergyKnown1" placeholder="Allergy"
+        [(ngModel)]="formUi.allergyKnown1">
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" id="allergyKnown2" name="allergyKnown2" placeholder="Allergy"
+        [(ngModel)]="formUi.allergyKnown2">
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" id="allergyKnown3" name="allergyKnown3" placeholder="Allergy"
+        [(ngModel)]="formUi.allergyKnown3">
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>Do you see yourself in a position to take care of your own valuables?</h5>
+  </div>
+  <div>
+    <div class="form-row form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="valuablesYes" name="valuablesYes"
+        [(ngModel)]="formUi.valuablesYes">
+      <label class="form-check-label" for="valuablesYes">Yes</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="valuablesNo" name="valuablesNo"
+        [(ngModel)]="formUi.valuablesNo">
+      <label class="form-check-label" for="valuablesNo">No</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="valuablesRel" name="valuablesRel"
+        [(ngModel)]="formUi.valuablesRel">
+      <label class="form-check-label" for="valuablesRel">Hand over to relatives</label>
+    </div>
+    <div class="form-row form-check-inline">
+      <input class="form-check-input" type="checkbox" id="valuablesWard" name="valuablesWard"
+        [(ngModel)]="formUi.valuablesWard">
+      <label class="form-check-label" for="valuablesWard">Lock away in hospital ward</label>
+    </div>
+  </div>
+
+  <div class="form-row subsection_container-header form-group">
+    <h5>The patient has been informed of the handling of valuables</h5>
+  </div>
+  <div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="informYes" name="informYes"
+        [(ngModel)]="formUi.informYes">
+      <label class="form-check-label" for="informYes">Yes</label>
+    </div>
+    <div class="form-group form-check-inline">
+      <input class="form-check-input" type="checkbox" id="informNo" name="informNo" [(ngModel)]="formUi.informNo">
+      <label class="form-check-label" for="informNo">No</label>
+    </div>
+  </div>
+
+
+  <div class="subsection_container-header form-row">
+    <div class="form-group col-md-8">
+      <h3>Summary</h3>
+    </div>
+    <div class="form-group col-md-2">
+      <button (click)="getSuggestions()" type="button" class="btn btn-primary" id="summary-btn">
+        <span [style.display]="isSuggesting ? 'block' : 'none'">
+          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          Suggesting...
+        </span>
+        <span [style.display]="!isSuggesting ? 'block' : 'none'">
+          Suggest
+        </span>
+      </button>
+    </div>
+    <div class="form-group col-md-2">
+      <button (click)="clearSuggestions()" type="button" class="btn btn-primary" id="summary-btn">Done</button>
+    </div>
+  </div>
+
+  <div id="summary_suggestions_container" [style.display]="areSuggestionsAvailable ? 'block' : 'none'">
+    <div class="form-check suggestion-input">
+      <input class="form-check-input" type="checkbox" name="first_suggestion" id="first_suggestion">
+      <label class="form-check-label" for="first_suggestion" [innerHTML]="first_suggestion">
+        Summary 1
+      </label>
+    </div>
+    <div class="form-check suggestion-input">
+      <input class="form-check-input" type="checkbox" name="second_suggestion" id="second_suggestion">
+      <label class="form-check-label" for="second_suggestion" [innerHTML]="second_suggestion">
+        Summary 2
+      </label>
+    </div>
+    <div class="form-check suggestion-input">
+      <input class="form-check-input" type="checkbox" name="third_suggestion" id="third_suggestion">
+      <label class="form-check-label" for="third_suggestion" [innerHTML]="third_suggestion">
+        Summary 3
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <textarea class="form-control" id="summary_text" rows="6"></textarea>
+  </div>
+
+  <div class="form-row">
+    <div class="btn_container col-md-3">
+      <button (click)="saveForm()" class="btn btn-primary" id="submit-btn">Submit</button>
+    </div>
+    <div class="btn_container col-md-5">
+    </div>
+
+    <div class="btn_container col-md-4">
+      <div class="toast align-items-center toast-container" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body toast-primary">
+            Form was submitted successfully!
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

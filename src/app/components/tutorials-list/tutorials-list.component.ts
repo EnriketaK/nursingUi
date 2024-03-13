@@ -24,7 +24,7 @@ export class TutorialsListComponent implements OnInit {
     this.tutorialService.getAll()
       .subscribe({
         next: (data) => {
-          this.forms = data;
+          this.forms = data.reverse();
           console.log(data);
         },
         error: (e) => console.error(e)
