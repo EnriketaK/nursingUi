@@ -16,6 +16,10 @@ export class TutorialService {
     return this.http.post(`${baseUrl}/suggestion`, data);
   }
 
+  get_translated_summaries(data: any): Observable<any> {
+    return this.http.post(`${baseUrl}/translated-sum`, data);
+  }
+
   save_admission_form(data: any): Observable<any> {
     return this.http.post(`${baseUrl}/save-admission`, data);
   }
