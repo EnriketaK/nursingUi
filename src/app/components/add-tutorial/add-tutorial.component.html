@@ -2,15 +2,7 @@
   <div class="form_container-header form-group">
     <h2>Nursing admission sheet</h2>
   </div>
-
-  <div class="question_container form-group">
-    <p class="question-parag">Dear patients,
-      we require further information from you to provide you with individual support.
-      We kindly ask you to complete the following form.
-      Please do not hesitate to contact us should you have any questions regarding the form. Thank you very much.
-    </p>
-  </div>
-
+  
   <div class="form-row subsection_container-header form-group">
     <h5>Patient label</h5>
   </div>
@@ -1357,12 +1349,33 @@
     </div>
   </div>
 
+    <div class="popup-container" [style.display]="areSuggestionsAvailable ? 'block' : 'none'">
+    <div class="subsection_container-header form-row">
+      <div class="form-group col-md-8">
+        <h5>Summary</h5>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <textarea class="form-control" id="summary_text" rows="6">
+      </textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="btn_container col-md-9">
+      </div>
+      <div class="btn_container col-md-3">
+        <button (click)="clearSuggestions()" class="btn btn-primary" id="summary-btn">Done</button>
+      </div>
+    </div>
+
+  </div>
 
   <div class="subsection_container-header form-row">
-    <div class="form-group col-md-8">
-      <h3>Summary</h3>
+    <div class="form-group col-md-9">
+      <!-- <h3>Summary</h3> -->
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3" [style.display]="areSuggestionsAvailable ? 'none' : 'block'">
       <button (click)="getSuggestions()" type="button" class="btn btn-primary" id="summary-btn">
         <span [style.display]="isSuggesting ? 'block' : 'none'">
           <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
@@ -1373,34 +1386,9 @@
         </span>
       </button>
     </div>
+
     <div class="form-group col-md-2">
-      <button (click)="clearSuggestions()" type="button" class="btn btn-primary" id="summary-btn">Done</button>
     </div>
-  </div>
-
-  <div id="summary_suggestions_container" [style.display]="areSuggestionsAvailable ? 'block' : 'none'">
-    <div class="form-check suggestion-input">
-      <input class="form-check-input" type="checkbox" name="first_suggestion" id="first_suggestion">
-      <label class="form-check-label" for="first_suggestion" [innerHTML]="first_suggestion">
-        Summary 1
-      </label>
-    </div>
-    <div class="form-check suggestion-input">
-      <input class="form-check-input" type="checkbox" name="second_suggestion" id="second_suggestion">
-      <label class="form-check-label" for="second_suggestion" [innerHTML]="second_suggestion">
-        Summary 2
-      </label>
-    </div>
-    <div class="form-check suggestion-input">
-      <input class="form-check-input" type="checkbox" name="third_suggestion" id="third_suggestion">
-      <label class="form-check-label" for="third_suggestion" [innerHTML]="third_suggestion">
-        Summary 3
-      </label>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <textarea class="form-control" id="summary_text" rows="6"></textarea>
   </div>
 
   <div class="form-row">

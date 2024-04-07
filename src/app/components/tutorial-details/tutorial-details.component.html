@@ -43,18 +43,6 @@
 
 <ng-template #editable>
   <div class="edit-form">
-    <div class="form_container-header form-group">
-      <h2>Nursing admission sheet</h2>
-    </div>
-
-    <div class="question_container form-group">
-      <p class="question-parag">Dear patients,
-        we require further information from you to provide you with individual support.
-        We kindly ask you to complete the following form.
-        Please do not hesitate to contact us should you have any questions regarding the form. Thank you very much.
-      </p>
-    </div>
-
     <div class="form-row subsection_container-header form-group">
       <h5>Patient label</h5>
     </div>
@@ -1429,18 +1417,18 @@
         <h3>Summary</h3>
       </div>
       <div class="form-group col-md-2">
-        <button (click)="getSuggestions()" type="button" class="btn btn-primary" id="summary-btn">
-          <span [style.display]="isSuggesting ? 'block' : 'none'">
+        <!-- <button (click)="getSuggestions()" type="button" class="btn btn-primary" id="summary-btn"> -->
+          <!-- <span [style.display]="isSuggesting ? 'block' : 'none'">
             <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
             Suggesting...
           </span>
           <span [style.display]="!isSuggesting ? 'block' : 'none'">
             Suggest
-          </span>
-        </button>
+          </span> -->
+        <!-- </button> -->
       </div>
       <div class="form-group col-md-2">
-        <button (click)="clearSuggestions()" type="button" class="btn btn-primary" id="summary-btn">Done</button>
+        <!-- <button (click)="clearSuggestions()" type="button" class="btn btn-primary" id="summary-btn">Done</button> -->
       </div>
     </div>
 
@@ -1480,7 +1468,7 @@
         <div class="toast align-items-center toast-container" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="d-flex">
             <div class="toast-body toast-primary">
-              Form was edited successfully!
+              Updated information successfully!
            </div>
           </div>
         </div>
