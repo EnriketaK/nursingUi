@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-.suggestion-input{
+.suggestion-input {
     margin: 10px 0px;
     padding: 10px 30px;
     transition: box-shadow .3s;
@@ -12,7 +12,7 @@
 }
 
 .suggestion-input:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
 
 #summary-btn {
@@ -43,7 +43,7 @@
     padding-left: 25px;
 }
 
-.toast-container{
+.toast-container {
     transition: box-shadow .3s;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -52,5 +52,16 @@
 }
 
 .toast-container:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
+.popup-container {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 25px 0px;
+    margin-bottom: 30px;
+}
+
+.popup-invisibility {
+    display: none;
 }

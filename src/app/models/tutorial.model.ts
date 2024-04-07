@@ -226,7 +226,12 @@ export class FormUi {
   }
 
   export interface SuggestionType {
-    summary1: string;
-    summary2: string;
-    summary3: string;
+    summary: string;
+  }
+
+  export class TranslateType {
+    language?: string;
+    summary1?: string;
+    summary2?: string;
+    summary3?: string;
   }

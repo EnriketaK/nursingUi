@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormSummaryDto, FormUi, SuggestionType } from 'src/app/models/tutorial.model';
+import { FormSummaryDto, FormUi, SuggestionType, TranslateType } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { timeInterval } from 'rxjs';
@@ -226,12 +226,13 @@ export class AddTutorialComponent implements OnInit {
     informNo: false,
   };
 
-  public first_suggestion = '';
-  public second_suggestion = '';
-  public third_suggestion = '';
   public areSuggestionsAvailable = false;
   public isSuggesting = false;
   public suggestionRes!: SuggestionType;
+  public language = 'english';
+  public summaryToSave = '';
+  public summaryTitles = new Array<String>();
+  public summaryFormatted = '';
 
   constructor(private tutorialService: TutorialService, private route: ActivatedRoute, private router: Router) {
   }
@@ -252,17 +253,22 @@ export class AddTutorialComponent implements OnInit {
       .subscribe({
         next: (res: any) => {
           console.log("res");
-          console.log(res);
-          this.suggestionRes = JSON.parse(res);
-          console.log(this.suggestionRes?.summary1);
-          console.log(this.suggestionRes?.summary2);
-          console.log(this.suggestionRes?.summary3);
+          console.log(JSON.parse(res));
+        
+          JSON.parse(res)["summary"].forEach((element: any) => {
+            this.summaryTitles.push(element.value);
+            var newline = String.fromCharCode(13, 10);
+            this.summaryFormatted += element + newline;
+          });
 
+          this.suggestionRes = JSON.parse(res);
           this.areSuggestionsAvailable = true;
           this.isSuggesting = false;
-          this.first_suggestion = this.suggestionRes.summary1;
-          this.second_suggestion = this.suggestionRes.summary2;
-          this.third_suggestion = this.suggestionRes.summary3;
+
+          var summaryText = <HTMLTextAreaElement>document.getElementById("summary_text");
+          summaryText.value = this.summaryFormatted;
+          console.log(summaryText.innerHTML);
+          // summaryText.textContent = allSummary += this.suggestionRes.summary;
         },
         error: (e) => {
           console.error(e);
@@ -272,26 +278,11 @@ export class AddTutorialComponent implements OnInit {
   }
 
   clearSuggestions(): void {
-    var firstSuggestionEl = <HTMLInputElement>document.getElementById("first_suggestion");
-    var isFirstSuggChecked = firstSuggestionEl.checked;
-    var secondSuggestionEl = <HTMLInputElement>document.getElementById("second_suggestion");
-    var isSecSuggChecked = secondSuggestionEl.checked;
-    var thirdSuggestionEl = <HTMLInputElement>document.getElementById("third_suggestion");
-    var isThirdSuggChecked = thirdSuggestionEl.checked;
-
     var summaryText = <HTMLTextAreaElement>document.getElementById("summary_text");
-    var allSummary = summaryText.innerHTML;
-
-    allSummary = isFirstSuggChecked ? allSummary += this.suggestionRes.summary1 : allSummary;
-    allSummary = isSecSuggChecked ? allSummary += this.suggestionRes.summary2 : allSummary;
-    allSummary = isThirdSuggChecked ? allSummary += this.suggestionRes.summary3 : allSummary;
-    firstSuggestionEl.checked = false;
-    secondSuggestionEl.checked = false;
-    thirdSuggestionEl.checked = false;
-
-    summaryText.textContent = allSummary;
-
+    this.summaryToSave = summaryText.value;
     this.areSuggestionsAvailable = false;
+    console.log("this.summaryToSave")
+    console.log(this.summaryToSave)
   }
 
   saveForm(): void {
@@ -313,12 +304,12 @@ export class AddTutorialComponent implements OnInit {
 
   saveSummary(formId: number): void {
     var summaryText = <HTMLTextAreaElement>document.getElementById("summary_text");
-    if (summaryText.value && summaryText.value.length > 0) {
+    if (this.summaryToSave.length > 0) {
       var summaryObj: FormSummaryDto = new FormSummaryDto();
-      summaryObj.content = summaryText.value;
+      summaryObj.content = this.summaryToSave;
       summaryObj.admissionFormFk = formId;
       console.log(" summaryText.value ");
-      console.log(summaryText.value);
+      console.log(summaryObj.content);
 
 
       this.tutorialService.save_summary(summaryObj)
@@ -656,7 +647,7 @@ export class AddTutorialComponent implements OnInit {
       understNerv: this.formUi.understNerv,
       understAltered: this.formUi.understAltered,
       disabilityNo: this.formUi.disabilityNo,
-      disabilityYes: this.formUi.disabilityNo,
+      disabilityYes: this.formUi.disabilityYes,
       disabilityHemiYes: this.formUi.disabilityHemiYes,
       disabilityHemi: this.formUi.disabilityHemi,
       disabilityAmputYes: this.formUi.disabilityAmputYes,

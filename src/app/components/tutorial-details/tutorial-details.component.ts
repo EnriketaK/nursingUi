@@ -308,15 +308,15 @@ export class TutorialDetailsComponent implements OnInit {
           console.log("res");
           console.log(res);
           this.suggestionRes = JSON.parse(res);
-          console.log(this.suggestionRes?.summary1);
-          console.log(this.suggestionRes?.summary2);
-          console.log(this.suggestionRes?.summary3);
+          console.log(this.suggestionRes?.summary);
+          // console.log(this.suggestionRes?.summary2);
+          // console.log(this.suggestionRes?.summary3);
 
           this.areSuggestionsAvailable = true;
           this.isSuggesting = false;
-          this.first_suggestion = this.suggestionRes.summary1;
-          this.second_suggestion = this.suggestionRes.summary2;
-          this.third_suggestion = this.suggestionRes.summary3;
+          this.first_suggestion = this.suggestionRes.summary;
+          // this.second_suggestion = this.suggestionRes.summary2;
+          // this.third_suggestion = this.suggestionRes.summary3;
         },
         error: (e) => {
           console.error(e);
@@ -336,9 +336,9 @@ export class TutorialDetailsComponent implements OnInit {
     var summaryText = <HTMLTextAreaElement> document.getElementById("summary_text");
     var allSummary = summaryText.innerHTML;
 
-    allSummary = isFirstSuggChecked ? allSummary += this.suggestionRes.summary1 : allSummary;
-    allSummary = isSecSuggChecked ? allSummary += this.suggestionRes.summary2 : allSummary;
-    allSummary = isThirdSuggChecked ? allSummary += this.suggestionRes.summary3 : allSummary;
+    allSummary = isFirstSuggChecked ? allSummary += this.suggestionRes.summary : allSummary;
+    // allSummary = isSecSuggChecked ? allSummary += this.suggestionRes.summary2 : allSummary;
+    // allSummary = isThirdSuggChecked ? allSummary += this.suggestionRes.summary3 : allSummary;
     firstSuggestionEl.checked = false;
     secondSuggestionEl.checked = false;
     thirdSuggestionEl.checked = false;
